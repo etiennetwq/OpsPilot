@@ -2,7 +2,7 @@
 
 **真实 Apache 日志驱动、证据优先的故障调查 Agent。** 独立于 LLM Security Audit Gateway 的第二个项目。具备可运行网页、FastAPI、只读工具、Hybrid RAG、可选真实模型 API 与可复现的事件证据评测。
 
-![本机演示](reports/demo.jpg)
+![真实模型工具调用演示](reports/agent_demo.jpg)
 
 
 ## v0.2 模型自主工具调用

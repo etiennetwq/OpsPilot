@@ -67,9 +67,12 @@ class ToolAgent:
         messages=[{'role':'system','content':SYSTEM},{'role':'user','content':redact(question)}]
         own=self.client is None;client=self.client or httpx.Client(timeout=30,follow_redirects=False)
         def safe(value):
-            s=json.dumps(value,ensure_ascii=False)
-            if self.config.api_key:s=s.replace(self.config.api_key,'<SECRET>')
-            return json.loads(redact(s))
+            if isinstance(value,dict):return {k:safe(v) for k,v in value.items()}
+            if isinstance(value,list):return [safe(v) for v in value]
+            if isinstance(value,str):
+                if self.config.api_key:value=value.replace(self.config.api_key,'<SECRET>')
+                return redact(value)
+            return value
         try:
             self.config.validate()
             for round_no in range(1,self.max_rounds+1):

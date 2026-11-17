@@ -12,7 +12,13 @@ def redact(text):
         except ValueError:
             return m[0]
     text = re.sub(r"\b(?:\d{1,3}\.){3}\d{1,3}\b", ip, text)
-    text = re.sub(r"(?i)(?:[0-9a-f]{1,4}:){2,}[0-9a-f:]*", "<IPV6>", text)
+    def ipv6(m):
+        try:
+            addr=ipaddress.ip_address(m[0])
+            return "<IPV6>" if addr.version==6 else m[0]
+        except ValueError:
+            return m[0]
+    text = re.sub(r"(?i)(?:[0-9a-f]{1,4}:){2,}[0-9a-f:]*", ipv6, text)
     text = re.sub(r"[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}", "<EMAIL>", text)
     text = re.sub(r"(?i)\b(api[_-]?key|token|password|authorization)\s*[:=]\s*\S+", r"\1=<SECRET>", text)
     return text

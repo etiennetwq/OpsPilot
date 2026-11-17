@@ -24,6 +24,7 @@ def test_labels_not_in_runtime(agent):
 def test_redaction():
     assert redact('1.2.3.4 a@b.com password=secret token=abc')=='<IP> <EMAIL> password=<SECRET> token=<SECRET>'
     assert '<IPV6>' in redact('2001:db8::1234')
+    assert redact('Sun Dec 04 05:15:09 2005')=='Sun Dec 04 05:15:09 2005'
 
 @pytest.mark.parametrize('q',["'; DROP TABLE logs; --",'%',r'_',chr(92)])
 def test_literal_sql(agent,q):

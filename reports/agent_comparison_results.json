@@ -6062,5 +6062,7 @@
     "input_peak_cache_miss_per_million": 0.3,
     "output_peak_per_million": 1.2,
     "basis": "Conservative published peak-rate no-cache upper estimate, not actual billed amount. Actual bill depends on cache and time."
-  }
+  },
+  "measured_git_tag": "agent-measured-20261117",
+  "post_measurement_fix": "Final source validates IPv6 and recursively redacts strings to preserve timestamps. This paid comparison was not rerun for that fix; no time reasoning metric is claimed."
 }

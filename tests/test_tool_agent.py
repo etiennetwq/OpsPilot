@@ -42,6 +42,7 @@ def test_model_selects_then_adapts_to_actual_result(agent):
     with httpx.Client(transport=httpx.MockTransport(handler)) as c:
         r=ToolAgent(agent,ModelConfig('test-secret','test'),c).run('q')
     assert r['status']=='completed' and r['usage']['api_calls']==3
+    assert r['trace'][0]['result']['items'][0]['time']=='Sun Dec 04 05:15:09 2005'
     assert [t['tool'] for t in r['trace']]==['search_logs','search_docs','get_context','finish_investigation']
     assert requests[0]['tool_choice']=='auto' and 'thinking' in requests[0]
     assert r['usage']['total_tokens']==360
