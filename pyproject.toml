@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "opspilot"
+version = "0.1.0"
+description = "Evidence-first Apache log investigation agent"
+requires-python = ">=3.11"
+dependencies = ["fastapi==0.115.12", "uvicorn==0.34.2", "httpx==0.28.1", "scikit-learn==1.6.1"]
+[project.optional-dependencies]
+test = ["pytest==8.3.5"]
+neural = ["sentence-transformers>=3,<6"]
+[project.scripts]
+opspilot = "opspilot.cli:main"
+[tool.setuptools.packages.find]
+include = ["opspilot*"]
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

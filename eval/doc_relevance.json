@@ -1,0 +1,27 @@
+{
+  "E1": [
+    "D:errorlog",
+    "D:scoreboard"
+  ],
+  "E2": [
+    "D:errorlog",
+    "D:initialization"
+  ],
+  "E3": [
+    "D:errorlog",
+    "D:workers"
+  ],
+  "E4": [
+    "D:errorlog",
+    "D:directory"
+  ],
+  "E5": [
+    "D:errorlog",
+    "D:scoreboard"
+  ],
+  "E6": [
+    "D:errorlog",
+    "D:scoreboard",
+    "D:initialization"
+  ]
+}

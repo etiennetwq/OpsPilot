@@ -1,0 +1,9 @@
+.venv
+.git
+.env*
+__pycache__
+.pytest_cache
+data/index.sqlite*
+reports/live*
+reports/test-temp*
+work

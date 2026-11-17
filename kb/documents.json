@@ -1,0 +1,50 @@
+[
+  {
+    "id": "D:errorlog",
+    "title": "Reading the error log",
+    "url": "https://httpd.apache.org/docs/2.4/logs.html#errorlog",
+    "text": "Error logs record diagnostic messages, including severity and time. A notice is not itself evidence of a failed request. Correlate timestamps and access logs before inferring impact. Historical formats differ from Apache 2.4.",
+    "section": "OpsPilot authored reading note; see official source",
+    "version_scope": "Modern documentation; historical JK2 mismatch disclosed"
+  },
+  {
+    "id": "D:directory",
+    "title": "Directory index and access policy",
+    "url": "https://httpd.apache.org/docs/2.4/mod/mod_autoindex.html",
+    "text": "Directory index forbidden by rule is an observed access denial. DirectoryIndex chooses an index file; automatic directory listing depends on Options Indexes. Read the effective directory configuration and index file availability. Do not enable directory listing as a blanket fix. The log alone does not establish which configuration caused denial.",
+    "section": "OpsPilot authored reading note; see official source",
+    "version_scope": "Modern documentation; historical JK2 mismatch disclosed"
+  },
+  {
+    "id": "D:workers",
+    "title": "Connector worker investigation",
+    "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+    "text": "mod_jk worker errors require version-specific configuration and backend evidence. Modern workers.properties documentation describes workers and startup configuration diagnostics. This is contextual reading, not an authoritative decoding of historical JK2 workerEnv error state 6. Read connector version and existing worker configuration, correlate backend logs. Do not infer that Tomcat is down from workerEnv alone.",
+    "section": "OpsPilot authored reading note; see official source",
+    "version_scope": "Modern documentation; historical JK2 mismatch disclosed"
+  },
+  {
+    "id": "D:scoreboard",
+    "title": "Child process scoreboard evidence",
+    "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+    "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+    "section": "OpsPilot authored reading note; see official source",
+    "version_scope": "Modern documentation; historical JK2 mismatch disclosed"
+  },
+  {
+    "id": "D:initialization",
+    "title": "Worker initialization evidence",
+    "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+    "text": "workerEnv.init() ok and mod_jk child init are historical JK2 initialization messages. Initialization success in one record does not prove end-to-end service health. JK2 is a historical connector; inspect archived version information before applying modern mod_jk advice. Compare neighboring errors and connector configuration.",
+    "section": "OpsPilot authored reading note; see official source",
+    "version_scope": "Modern documentation; historical JK2 mismatch disclosed"
+  },
+  {
+    "id": "D:limits",
+    "title": "Evidence limits and missing incidents",
+    "url": "https://github.com/logpai/loghub/tree/master/Apache",
+    "text": "The Apache 2k sample contains event templates rather than confirmed incident root causes. No CPU, disk, database or Kubernetes incident labels are provided. If asked for an unrelated failure, request relevant logs and abstain. Event evidence retrieval is not root cause diagnosis.",
+    "section": "OpsPilot authored reading note; see official source",
+    "version_scope": "Modern documentation; historical JK2 mismatch disclosed"
+  }
+]

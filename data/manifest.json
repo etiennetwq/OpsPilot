@@ -1,0 +1,36 @@
+{
+  "repository": "https://github.com/logpai/loghub",
+  "commit": "dd61d0952749ee7963bde24220d1be5ede023033",
+  "files": [
+    {
+      "path": "data/source/LICENSE",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/LICENSE",
+      "sha256": "9ffa6ae259833cdc6e7ed8a0219fec72ef6455fb457b3c44096cb1ac1f0696d4"
+    },
+    {
+      "path": "data/source/CITATION",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/CITATION",
+      "sha256": "4ea0e875e2b201b11e0c1ca9cdf0a1d10396c821a846304e05ad2e1f04eea35d"
+    },
+    {
+      "path": "data/source/Apache_README.md",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/Apache/README.md",
+      "sha256": "48c1dfcbcaa2394768aa813c19a69a3086da5536498394b0069081e85dcbe583"
+    },
+    {
+      "path": "data/source/Apache_Apache_2k.log",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/Apache/Apache_2k.log",
+      "sha256": "c7efa3eb686e3a96bd2f8f4457b2a7887e9cf2f3649327f1b4e87af841363ce8"
+    },
+    {
+      "path": "data/source/Apache_Apache_2k.log_structured.csv",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/Apache/Apache_2k.log_structured.csv",
+      "sha256": "54331d12eedf513f2127f4d89f0284c8b15fddfa5471103abf9db2c73d737778"
+    },
+    {
+      "path": "data/source/Apache_Apache_2k.log_templates.csv",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/Apache/Apache_2k.log_templates.csv",
+      "sha256": "64e4bf77bb87e6762e59df8ea7eef95ee4dd9be7f29702c767dff88ec951d11f"
+    }
+  ]
+}

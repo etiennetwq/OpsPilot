@@ -1,0 +1,107 @@
+[
+  {
+    "id": "E1-1",
+    "question": "Find jk2_init Found child in scoreboard slot",
+    "event": "E1",
+    "answerable": true,
+    "label_basis": "Relevant line IDs are all rows with upstream EventId E1. Author-written query, not an upstream RCA task."
+  },
+  {
+    "id": "E1-2",
+    "question": "Show successful child scoreboard slot registration",
+    "event": "E1",
+    "answerable": true,
+    "label_basis": "Relevant line IDs are all rows with upstream EventId E1. Author-written query, not an upstream RCA task."
+  },
+  {
+    "id": "E2-1",
+    "question": "Find workerEnv.init() ok configuration records",
+    "event": "E2",
+    "answerable": true,
+    "label_basis": "Relevant line IDs are all rows with upstream EventId E2. Author-written query, not an upstream RCA task."
+  },
+  {
+    "id": "E2-2",
+    "question": "Which records show workerEnv initialization ok?",
+    "event": "E2",
+    "answerable": true,
+    "label_basis": "Relevant line IDs are all rows with upstream EventId E2. Author-written query, not an upstream RCA task."
+  },
+  {
+    "id": "E3-1",
+    "question": "Find mod_jk child workerEnv in error state",
+    "event": "E3",
+    "answerable": true,
+    "label_basis": "Relevant line IDs are all rows with upstream EventId E3. Author-written query, not an upstream RCA task."
+  },
+  {
+    "id": "E3-2",
+    "question": "Show connector workerEnv error state 6 evidence",
+    "event": "E3",
+    "answerable": true,
+    "label_basis": "Relevant line IDs are all rows with upstream EventId E3. Author-written query, not an upstream RCA task."
+  },
+  {
+    "id": "E4-1",
+    "question": "Directory index forbidden by rule",
+    "event": "E4",
+    "answerable": true,
+    "label_basis": "Relevant line IDs are all rows with upstream EventId E4. Author-written query, not an upstream RCA task."
+  },
+  {
+    "id": "E4-2",
+    "question": "Find client directory listing denied forbidden rule",
+    "event": "E4",
+    "answerable": true,
+    "label_basis": "Relevant line IDs are all rows with upstream EventId E4. Author-written query, not an upstream RCA task."
+  },
+  {
+    "id": "E5-1",
+    "question": "jk2_init Can't find child in scoreboard",
+    "event": "E5",
+    "answerable": true,
+    "label_basis": "Relevant line IDs are all rows with upstream EventId E5. Author-written query, not an upstream RCA task."
+  },
+  {
+    "id": "E5-2",
+    "question": "Find missing child scoreboard records",
+    "event": "E5",
+    "answerable": true,
+    "label_basis": "Relevant line IDs are all rows with upstream EventId E5. Author-written query, not an upstream RCA task."
+  },
+  {
+    "id": "E6-1",
+    "question": "mod_jk child init",
+    "event": "E6",
+    "answerable": true,
+    "label_basis": "Relevant line IDs are all rows with upstream EventId E6. Author-written query, not an upstream RCA task."
+  },
+  {
+    "id": "E6-2",
+    "question": "Find mod_jk child initialization records",
+    "event": "E6",
+    "answerable": true,
+    "label_basis": "Relevant line IDs are all rows with upstream EventId E6. Author-written query, not an upstream RCA task."
+  },
+  {
+    "id": "N-1",
+    "question": "Kubernetes pod OOMKilled memory leak",
+    "event": null,
+    "answerable": false,
+    "label_basis": "Author-created out-of-scope negative; no matching event in the six upstream templates."
+  },
+  {
+    "id": "N-2",
+    "question": "PostgreSQL deadlock transaction rollback",
+    "event": null,
+    "answerable": false,
+    "label_basis": "Author-created out-of-scope negative; no matching event in the six upstream templates."
+  },
+  {
+    "id": "N-3",
+    "question": "NVMe disk full filesystem corruption",
+    "event": null,
+    "answerable": false,
+    "label_basis": "Author-created out-of-scope negative; no matching event in the six upstream templates."
+  }
+]

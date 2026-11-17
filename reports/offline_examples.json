@@ -1,0 +1,2583 @@
+[
+  {
+    "task": "E1-1",
+    "result": {
+      "question": "Find jk2_init Found child in scoreboard slot",
+      "mode": "hybrid",
+      "generator": "offline-extractive",
+      "embedding": "lsa",
+      "insufficient_evidence": false,
+      "answer": {
+        "summary": "日志 L1544 在 Mon Dec 05 11:06:52 2005 记录：jk2_init() Can't find child 5620 in scoreboard。这是可观察现象，根因尚未确认。",
+        "hypotheses": [
+          "需结合版本、配置、访问日志和相邻时间记录验证；单一事件模板不能证明因果关系。"
+        ],
+        "next_checks": [
+          "只读核对相关配置和组件版本。",
+          "对照相邻日志、错误级别计数及文档中的适用版本。",
+          "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence."
+        ],
+        "citations": [
+          "L1544",
+          "L1541",
+          "L1550",
+          "L1547",
+          "L1349",
+          "D:scoreboard",
+          "D:initialization",
+          "D:directory"
+        ]
+      },
+      "logs": [
+        {
+          "id": "L1544",
+          "line": 1544,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 5620 in scoreboard",
+          "score": 0.028370221327967807
+        },
+        {
+          "id": "L1541",
+          "line": 1541,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 5619 in scoreboard",
+          "score": 0.027479766610201392
+        },
+        {
+          "id": "L1550",
+          "line": 1550,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 5622 in scoreboard",
+          "score": 0.027402402402402402
+        },
+        {
+          "id": "L1547",
+          "line": 1547,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 5621 in scoreboard",
+          "score": 0.027242401779095628
+        },
+        {
+          "id": "L1349",
+          "line": 1349,
+          "time": "Mon Dec 05 07:57:02 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 5053 in scoreboard",
+          "score": 0.026973565905412694
+        }
+      ],
+      "documents": [
+        {
+          "id": "D:scoreboard",
+          "title": "Child process scoreboard evidence",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+          "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "D:initialization",
+          "title": "Worker initialization evidence",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "workerEnv.init() ok and mod_jk child init are historical JK2 initialization messages. Initialization success in one record does not prove end-to-end service health. JK2 is a historical connector; inspect archived version information before applying modern mod_jk advice. Compare neighboring errors and connector configuration.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "D:directory",
+          "title": "Directory index and access policy",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mod_autoindex.html",
+          "text": "Directory index forbidden by rule is an observed access denial. DirectoryIndex chooses an index file; automatic directory listing depends on Options Indexes. Read the effective directory configuration and index file availability. Do not enable directory listing as a blanket fix. The log alone does not establish which configuration caused denial.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.015873015873015872
+        }
+      ],
+      "context": [
+        {
+          "line": 1542,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        },
+        {
+          "line": 1543,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "error",
+          "message": "mod_jk child init 1 -2"
+        },
+        {
+          "line": 1544,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "error",
+          "message": "jk2_init() Can't find child 5620 in scoreboard"
+        },
+        {
+          "line": 1545,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        },
+        {
+          "line": 1546,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "error",
+          "message": "mod_jk child init 1 -2"
+        }
+      ],
+      "statistics": [
+        {
+          "level": "error",
+          "count": 595
+        },
+        {
+          "level": "notice",
+          "count": 1405
+        }
+      ],
+      "trace": [
+        {
+          "tool": "retrieve_logs",
+          "mode": "hybrid",
+          "ids": [
+            "L1544",
+            "L1541",
+            "L1550",
+            "L1547",
+            "L1349"
+          ]
+        },
+        {
+          "tool": "retrieve_docs",
+          "ids": [
+            "D:scoreboard",
+            "D:initialization",
+            "D:directory"
+          ]
+        },
+        {
+          "tool": "context",
+          "line": 1544,
+          "radius": 2
+        },
+        {
+          "tool": "stats",
+          "result": [
+            {
+              "level": "error",
+              "count": 595
+            },
+            {
+              "level": "notice",
+              "count": 1405
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "provider_error": null,
+      "latency_ms": 8.773,
+      "warning": "2005 年 Apache/JK2 样本；仅事件证据检索，无确认根因标签。引用 ID 校验不等于语义正确性校验。"
+    }
+  },
+  {
+    "task": "E1-2",
+    "result": {
+      "question": "Show successful child scoreboard slot registration",
+      "mode": "hybrid",
+      "generator": "offline-extractive",
+      "embedding": "lsa",
+      "insufficient_evidence": false,
+      "answer": {
+        "summary": "日志 L98 在 Sun Dec 04 05:02:14 2005 记录：jk2_init() Found child 8605 in scoreboard slot 8。这是可观察现象，根因尚未确认。",
+        "hypotheses": [
+          "需结合版本、配置、访问日志和相邻时间记录验证；单一事件模板不能证明因果关系。"
+        ],
+        "next_checks": [
+          "只读核对相关配置和组件版本。",
+          "对照相邻日志、错误级别计数及文档中的适用版本。",
+          "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence."
+        ],
+        "citations": [
+          "L98",
+          "L103",
+          "L527",
+          "L551",
+          "L525",
+          "D:scoreboard",
+          "D:initialization",
+          "D:workers"
+        ]
+      },
+      "logs": [
+        {
+          "id": "L98",
+          "line": 98,
+          "time": "Sun Dec 04 05:02:14 2005",
+          "level": "notice",
+          "text": "jk2_init() Found child 8605 in scoreboard slot 8",
+          "score": 0.02292152292152292
+        },
+        {
+          "id": "L103",
+          "line": 103,
+          "time": "Sun Dec 04 05:04:03 2005",
+          "level": "notice",
+          "text": "jk2_init() Found child 8743 in scoreboard slot 7",
+          "score": 0.02227361246348588
+        },
+        {
+          "id": "L527",
+          "line": 527,
+          "time": "Sun Dec 04 07:11:04 2005",
+          "level": "notice",
+          "text": "jk2_init() Found child 309 in scoreboard slot 7",
+          "score": 0.01951886276653909
+        },
+        {
+          "id": "L551",
+          "line": 551,
+          "time": "Sun Dec 04 07:14:07 2005",
+          "level": "notice",
+          "text": "jk2_init() Found child 319 in scoreboard slot 7",
+          "score": 0.019184274151161567
+        },
+        {
+          "id": "L525",
+          "line": 525,
+          "time": "Sun Dec 04 07:10:54 2005",
+          "level": "notice",
+          "text": "jk2_init() Found child 308 in scoreboard slot 8",
+          "score": 0.01903796928327645
+        }
+      ],
+      "documents": [
+        {
+          "id": "D:scoreboard",
+          "title": "Child process scoreboard evidence",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+          "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "D:initialization",
+          "title": "Worker initialization evidence",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "workerEnv.init() ok and mod_jk child init are historical JK2 initialization messages. Initialization success in one record does not prove end-to-end service health. JK2 is a historical connector; inspect archived version information before applying modern mod_jk advice. Compare neighboring errors and connector configuration.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "D:workers",
+          "title": "Connector worker investigation",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "mod_jk worker errors require version-specific configuration and backend evidence. Modern workers.properties documentation describes workers and startup configuration diagnostics. This is contextual reading, not an authoritative decoding of historical JK2 workerEnv error state 6. Read connector version and existing worker configuration, correlate backend logs. Do not infer that Tomcat is down from workerEnv alone.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.015873015873015872
+        }
+      ],
+      "context": [
+        {
+          "line": 96,
+          "time": "Sun Dec 04 05:01:20 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 8587 in scoreboard slot 9"
+        },
+        {
+          "line": 97,
+          "time": "Sun Dec 04 05:02:14 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 8603 in scoreboard slot 10"
+        },
+        {
+          "line": 98,
+          "time": "Sun Dec 04 05:02:14 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 8605 in scoreboard slot 8"
+        },
+        {
+          "line": 99,
+          "time": "Sun Dec 04 05:04:03 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 8764 in scoreboard slot 10"
+        },
+        {
+          "line": 100,
+          "time": "Sun Dec 04 05:04:03 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 8765 in scoreboard slot 11"
+        }
+      ],
+      "statistics": [
+        {
+          "level": "error",
+          "count": 595
+        },
+        {
+          "level": "notice",
+          "count": 1405
+        }
+      ],
+      "trace": [
+        {
+          "tool": "retrieve_logs",
+          "mode": "hybrid",
+          "ids": [
+            "L98",
+            "L103",
+            "L527",
+            "L551",
+            "L525"
+          ]
+        },
+        {
+          "tool": "retrieve_docs",
+          "ids": [
+            "D:scoreboard",
+            "D:initialization",
+            "D:workers"
+          ]
+        },
+        {
+          "tool": "context",
+          "line": 98,
+          "radius": 2
+        },
+        {
+          "tool": "stats",
+          "result": [
+            {
+              "level": "error",
+              "count": 595
+            },
+            {
+              "level": "notice",
+              "count": 1405
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "provider_error": null,
+      "latency_ms": 8.837,
+      "warning": "2005 年 Apache/JK2 样本；仅事件证据检索，无确认根因标签。引用 ID 校验不等于语义正确性校验。"
+    }
+  },
+  {
+    "task": "E2-1",
+    "result": {
+      "question": "Find workerEnv.init() ok configuration records",
+      "mode": "hybrid",
+      "generator": "offline-extractive",
+      "embedding": "lsa",
+      "insufficient_evidence": false,
+      "answer": {
+        "summary": "日志 L1032 在 Sun Dec 04 20:47:16 2005 记录：jk2_init() Can't find child 2082 in scoreboard。这是可观察现象，根因尚未确认。",
+        "hypotheses": [
+          "需结合版本、配置、访问日志和相邻时间记录验证；单一事件模板不能证明因果关系。"
+        ],
+        "next_checks": [
+          "只读核对相关配置和组件版本。",
+          "对照相邻日志、错误级别计数及文档中的适用版本。",
+          "workerEnv.init() ok and mod_jk child init are historical JK2 initialization messages. Initialization success in one record does not prove end-to-end service health. JK2 is a historical connector; inspect archived version information before applying modern mod_jk advice. Compare neighboring errors and connector configuration."
+        ],
+        "citations": [
+          "L1032",
+          "L1544",
+          "L1043",
+          "L1040",
+          "L785",
+          "D:initialization",
+          "D:workers",
+          "D:scoreboard"
+        ]
+      },
+      "logs": [
+        {
+          "id": "L1032",
+          "line": 1032,
+          "time": "Sun Dec 04 20:47:16 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 2082 in scoreboard",
+          "score": 0.03125763125763126
+        },
+        {
+          "id": "L1544",
+          "line": 1544,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 5620 in scoreboard",
+          "score": 0.030679156908665108
+        },
+        {
+          "id": "L1043",
+          "line": 1043,
+          "time": "Sun Dec 04 20:47:17 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 2086 in scoreboard",
+          "score": 0.030536130536130537
+        },
+        {
+          "id": "L1040",
+          "line": 1040,
+          "time": "Sun Dec 04 20:47:17 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 2085 in scoreboard",
+          "score": 0.030330882352941176
+        },
+        {
+          "id": "L785",
+          "line": 785,
+          "time": "Sun Dec 04 17:43:08 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 1566 in scoreboard",
+          "score": 0.03028233151183971
+        }
+      ],
+      "documents": [
+        {
+          "id": "D:initialization",
+          "title": "Worker initialization evidence",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "workerEnv.init() ok and mod_jk child init are historical JK2 initialization messages. Initialization success in one record does not prove end-to-end service health. JK2 is a historical connector; inspect archived version information before applying modern mod_jk advice. Compare neighboring errors and connector configuration.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "D:workers",
+          "title": "Connector worker investigation",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "mod_jk worker errors require version-specific configuration and backend evidence. Modern workers.properties documentation describes workers and startup configuration diagnostics. This is contextual reading, not an authoritative decoding of historical JK2 workerEnv error state 6. Read connector version and existing worker configuration, correlate backend logs. Do not infer that Tomcat is down from workerEnv alone.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03200204813108039
+        },
+        {
+          "id": "D:scoreboard",
+          "title": "Child process scoreboard evidence",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+          "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03200204813108039
+        }
+      ],
+      "context": [
+        {
+          "line": 1030,
+          "time": "Sun Dec 04 20:44:30 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 2061 in scoreboard slot 8"
+        },
+        {
+          "line": 1031,
+          "time": "Sun Dec 04 20:47:16 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 2081 in scoreboard slot 6"
+        },
+        {
+          "line": 1032,
+          "time": "Sun Dec 04 20:47:16 2005",
+          "level": "error",
+          "message": "jk2_init() Can't find child 2082 in scoreboard"
+        },
+        {
+          "line": 1033,
+          "time": "Sun Dec 04 20:47:16 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 2083 in scoreboard slot 8"
+        },
+        {
+          "line": 1034,
+          "time": "Sun Dec 04 20:47:16 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        }
+      ],
+      "statistics": [
+        {
+          "level": "error",
+          "count": 595
+        },
+        {
+          "level": "notice",
+          "count": 1405
+        }
+      ],
+      "trace": [
+        {
+          "tool": "retrieve_logs",
+          "mode": "hybrid",
+          "ids": [
+            "L1032",
+            "L1544",
+            "L1043",
+            "L1040",
+            "L785"
+          ]
+        },
+        {
+          "tool": "retrieve_docs",
+          "ids": [
+            "D:initialization",
+            "D:workers",
+            "D:scoreboard"
+          ]
+        },
+        {
+          "tool": "context",
+          "line": 1032,
+          "radius": 2
+        },
+        {
+          "tool": "stats",
+          "result": [
+            {
+              "level": "error",
+              "count": 595
+            },
+            {
+              "level": "notice",
+              "count": 1405
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "provider_error": null,
+      "latency_ms": 8.534,
+      "warning": "2005 年 Apache/JK2 样本；仅事件证据检索，无确认根因标签。引用 ID 校验不等于语义正确性校验。"
+    }
+  },
+  {
+    "task": "E2-2",
+    "result": {
+      "question": "Which records show workerEnv initialization ok?",
+      "mode": "hybrid",
+      "generator": "offline-extractive",
+      "embedding": "lsa",
+      "insufficient_evidence": false,
+      "answer": {
+        "summary": "日志 L1 在 Sun Dec 04 04:47:44 2005 记录：workerEnv.init() ok /etc/httpd/conf/workers2.properties。这是可观察现象，根因尚未确认。",
+        "hypotheses": [
+          "需结合版本、配置、访问日志和相邻时间记录验证；单一事件模板不能证明因果关系。"
+        ],
+        "next_checks": [
+          "只读核对相关配置和组件版本。",
+          "对照相邻日志、错误级别计数及文档中的适用版本。",
+          "workerEnv.init() ok and mod_jk child init are historical JK2 initialization messages. Initialization success in one record does not prove end-to-end service health. JK2 is a historical connector; inspect archived version information before applying modern mod_jk advice. Compare neighboring errors and connector configuration."
+        ],
+        "citations": [
+          "L1",
+          "L2",
+          "L6",
+          "L9",
+          "L7",
+          "D:initialization",
+          "D:scoreboard",
+          "D:workers"
+        ]
+      },
+      "logs": [
+        {
+          "id": "L1",
+          "line": 1,
+          "time": "Sun Dec 04 04:47:44 2005",
+          "level": "notice",
+          "text": "workerEnv.init() ok /etc/httpd/conf/workers2.properties",
+          "score": 0.018027429551055397
+        },
+        {
+          "id": "L2",
+          "line": 2,
+          "time": "Sun Dec 04 04:47:44 2005",
+          "level": "error",
+          "text": "mod_jk child workerEnv in error state 6",
+          "score": 0.01798074421025241
+        },
+        {
+          "id": "L6",
+          "line": 6,
+          "time": "Sun Dec 04 04:51:14 2005",
+          "level": "notice",
+          "text": "workerEnv.init() ok /etc/httpd/conf/workers2.properties",
+          "score": 0.017760353628374467
+        },
+        {
+          "id": "L9",
+          "line": 9,
+          "time": "Sun Dec 04 04:51:18 2005",
+          "level": "error",
+          "text": "mod_jk child workerEnv in error state 6",
+          "score": 0.01771381831194724
+        },
+        {
+          "id": "L7",
+          "line": 7,
+          "time": "Sun Dec 04 04:51:14 2005",
+          "level": "notice",
+          "text": "workerEnv.init() ok /etc/httpd/conf/workers2.properties",
+          "score": 0.01750168036812988
+        }
+      ],
+      "documents": [
+        {
+          "id": "D:initialization",
+          "title": "Worker initialization evidence",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "workerEnv.init() ok and mod_jk child init are historical JK2 initialization messages. Initialization success in one record does not prove end-to-end service health. JK2 is a historical connector; inspect archived version information before applying modern mod_jk advice. Compare neighboring errors and connector configuration.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "D:scoreboard",
+          "title": "Child process scoreboard evidence",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+          "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03200204813108039
+        },
+        {
+          "id": "D:workers",
+          "title": "Connector worker investigation",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "mod_jk worker errors require version-specific configuration and backend evidence. Modern workers.properties documentation describes workers and startup configuration diagnostics. This is contextual reading, not an authoritative decoding of historical JK2 workerEnv error state 6. Read connector version and existing worker configuration, correlate backend logs. Do not infer that Tomcat is down from workerEnv alone.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.031754032258064516
+        }
+      ],
+      "context": [
+        {
+          "line": 1,
+          "time": "Sun Dec 04 04:47:44 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        },
+        {
+          "line": 2,
+          "time": "Sun Dec 04 04:47:44 2005",
+          "level": "error",
+          "message": "mod_jk child workerEnv in error state 6"
+        },
+        {
+          "line": 3,
+          "time": "Sun Dec 04 04:51:08 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 6725 in scoreboard slot 10"
+        }
+      ],
+      "statistics": [
+        {
+          "level": "error",
+          "count": 595
+        },
+        {
+          "level": "notice",
+          "count": 1405
+        }
+      ],
+      "trace": [
+        {
+          "tool": "retrieve_logs",
+          "mode": "hybrid",
+          "ids": [
+            "L1",
+            "L2",
+            "L6",
+            "L9",
+            "L7"
+          ]
+        },
+        {
+          "tool": "retrieve_docs",
+          "ids": [
+            "D:initialization",
+            "D:scoreboard",
+            "D:workers"
+          ]
+        },
+        {
+          "tool": "context",
+          "line": 1,
+          "radius": 2
+        },
+        {
+          "tool": "stats",
+          "result": [
+            {
+              "level": "error",
+              "count": 595
+            },
+            {
+              "level": "notice",
+              "count": 1405
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "provider_error": null,
+      "latency_ms": 10.497,
+      "warning": "2005 年 Apache/JK2 样本；仅事件证据检索，无确认根因标签。引用 ID 校验不等于语义正确性校验。"
+    }
+  },
+  {
+    "task": "E3-1",
+    "result": {
+      "question": "Find mod_jk child workerEnv in error state",
+      "mode": "hybrid",
+      "generator": "offline-extractive",
+      "embedding": "lsa",
+      "insufficient_evidence": false,
+      "answer": {
+        "summary": "日志 L2 在 Sun Dec 04 04:47:44 2005 记录：mod_jk child workerEnv in error state 6。这是可观察现象，根因尚未确认。",
+        "hypotheses": [
+          "需结合版本、配置、访问日志和相邻时间记录验证；单一事件模板不能证明因果关系。"
+        ],
+        "next_checks": [
+          "只读核对相关配置和组件版本。",
+          "对照相邻日志、错误级别计数及文档中的适用版本。",
+          "workerEnv.init() ok and mod_jk child init are historical JK2 initialization messages. Initialization success in one record does not prove end-to-end service health. JK2 is a historical connector; inspect archived version information before applying modern mod_jk advice. Compare neighboring errors and connector configuration."
+        ],
+        "citations": [
+          "L2",
+          "L9",
+          "L10",
+          "L11",
+          "L17",
+          "D:initialization",
+          "D:scoreboard",
+          "D:workers"
+        ]
+      },
+      "logs": [
+        {
+          "id": "L2",
+          "line": 2,
+          "time": "Sun Dec 04 04:47:44 2005",
+          "level": "error",
+          "text": "mod_jk child workerEnv in error state 6",
+          "score": 0.03009207275993712
+        },
+        {
+          "id": "L9",
+          "line": 9,
+          "time": "Sun Dec 04 04:51:18 2005",
+          "level": "error",
+          "text": "mod_jk child workerEnv in error state 6",
+          "score": 0.02964254577157803
+        },
+        {
+          "id": "L10",
+          "line": 10,
+          "time": "Sun Dec 04 04:51:18 2005",
+          "level": "error",
+          "text": "mod_jk child workerEnv in error state 6",
+          "score": 0.029206349206349208
+        },
+        {
+          "id": "L11",
+          "line": 11,
+          "time": "Sun Dec 04 04:51:18 2005",
+          "level": "error",
+          "text": "mod_jk child workerEnv in error state 6",
+          "score": 0.028782894736842105
+        },
+        {
+          "id": "L17",
+          "line": 17,
+          "time": "Sun Dec 04 04:51:55 2005",
+          "level": "error",
+          "text": "mod_jk child workerEnv in error state 6",
+          "score": 0.028371628371628373
+        }
+      ],
+      "documents": [
+        {
+          "id": "D:initialization",
+          "title": "Worker initialization evidence",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "workerEnv.init() ok and mod_jk child init are historical JK2 initialization messages. Initialization success in one record does not prove end-to-end service health. JK2 is a historical connector; inspect archived version information before applying modern mod_jk advice. Compare neighboring errors and connector configuration.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "D:scoreboard",
+          "title": "Child process scoreboard evidence",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+          "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.032266458495966696
+        },
+        {
+          "id": "D:workers",
+          "title": "Connector worker investigation",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "mod_jk worker errors require version-specific configuration and backend evidence. Modern workers.properties documentation describes workers and startup configuration diagnostics. This is contextual reading, not an authoritative decoding of historical JK2 workerEnv error state 6. Read connector version and existing worker configuration, correlate backend logs. Do not infer that Tomcat is down from workerEnv alone.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03200204813108039
+        }
+      ],
+      "context": [
+        {
+          "line": 1,
+          "time": "Sun Dec 04 04:47:44 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        },
+        {
+          "line": 2,
+          "time": "Sun Dec 04 04:47:44 2005",
+          "level": "error",
+          "message": "mod_jk child workerEnv in error state 6"
+        },
+        {
+          "line": 3,
+          "time": "Sun Dec 04 04:51:08 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 6725 in scoreboard slot 10"
+        },
+        {
+          "line": 4,
+          "time": "Sun Dec 04 04:51:09 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 6726 in scoreboard slot 8"
+        }
+      ],
+      "statistics": [
+        {
+          "level": "error",
+          "count": 595
+        },
+        {
+          "level": "notice",
+          "count": 1405
+        }
+      ],
+      "trace": [
+        {
+          "tool": "retrieve_logs",
+          "mode": "hybrid",
+          "ids": [
+            "L2",
+            "L9",
+            "L10",
+            "L11",
+            "L17"
+          ]
+        },
+        {
+          "tool": "retrieve_docs",
+          "ids": [
+            "D:initialization",
+            "D:scoreboard",
+            "D:workers"
+          ]
+        },
+        {
+          "tool": "context",
+          "line": 2,
+          "radius": 2
+        },
+        {
+          "tool": "stats",
+          "result": [
+            {
+              "level": "error",
+              "count": 595
+            },
+            {
+              "level": "notice",
+              "count": 1405
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "provider_error": null,
+      "latency_ms": 9.289,
+      "warning": "2005 年 Apache/JK2 样本；仅事件证据检索，无确认根因标签。引用 ID 校验不等于语义正确性校验。"
+    }
+  },
+  {
+    "task": "E3-2",
+    "result": {
+      "question": "Show connector workerEnv error state 6 evidence",
+      "mode": "hybrid",
+      "generator": "offline-extractive",
+      "embedding": "lsa",
+      "insufficient_evidence": false,
+      "answer": {
+        "summary": "日志 L2 在 Sun Dec 04 04:47:44 2005 记录：mod_jk child workerEnv in error state 6。这是可观察现象，根因尚未确认。",
+        "hypotheses": [
+          "需结合版本、配置、访问日志和相邻时间记录验证；单一事件模板不能证明因果关系。"
+        ],
+        "next_checks": [
+          "只读核对相关配置和组件版本。",
+          "对照相邻日志、错误级别计数及文档中的适用版本。",
+          "mod_jk worker errors require version-specific configuration and backend evidence. Modern workers.properties documentation describes workers and startup configuration diagnostics. This is contextual reading, not an authoritative decoding of historical JK2 workerEnv error state 6. Read connector version and existing worker configuration, correlate backend logs. Do not infer that Tomcat is down from workerEnv alone."
+        ],
+        "citations": [
+          "L2",
+          "L9",
+          "L10",
+          "L11",
+          "L17",
+          "D:workers",
+          "D:initialization",
+          "D:errorlog"
+        ]
+      },
+      "logs": [
+        {
+          "id": "L2",
+          "line": 2,
+          "time": "Sun Dec 04 04:47:44 2005",
+          "level": "error",
+          "text": "mod_jk child workerEnv in error state 6",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "L9",
+          "line": 9,
+          "time": "Sun Dec 04 04:51:18 2005",
+          "level": "error",
+          "text": "mod_jk child workerEnv in error state 6",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "L10",
+          "line": 10,
+          "time": "Sun Dec 04 04:51:18 2005",
+          "level": "error",
+          "text": "mod_jk child workerEnv in error state 6",
+          "score": 0.031746031746031744
+        },
+        {
+          "id": "L11",
+          "line": 11,
+          "time": "Sun Dec 04 04:51:18 2005",
+          "level": "error",
+          "text": "mod_jk child workerEnv in error state 6",
+          "score": 0.03125
+        },
+        {
+          "id": "L17",
+          "line": 17,
+          "time": "Sun Dec 04 04:51:55 2005",
+          "level": "error",
+          "text": "mod_jk child workerEnv in error state 6",
+          "score": 0.03076923076923077
+        }
+      ],
+      "documents": [
+        {
+          "id": "D:workers",
+          "title": "Connector worker investigation",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "mod_jk worker errors require version-specific configuration and backend evidence. Modern workers.properties documentation describes workers and startup configuration diagnostics. This is contextual reading, not an authoritative decoding of historical JK2 workerEnv error state 6. Read connector version and existing worker configuration, correlate backend logs. Do not infer that Tomcat is down from workerEnv alone.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "D:initialization",
+          "title": "Worker initialization evidence",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "workerEnv.init() ok and mod_jk child init are historical JK2 initialization messages. Initialization success in one record does not prove end-to-end service health. JK2 is a historical connector; inspect archived version information before applying modern mod_jk advice. Compare neighboring errors and connector configuration.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "D:errorlog",
+          "title": "Reading the error log",
+          "url": "https://httpd.apache.org/docs/2.4/logs.html#errorlog",
+          "text": "Error logs record diagnostic messages, including severity and time. A notice is not itself evidence of a failed request. Correlate timestamps and access logs before inferring impact. Historical formats differ from Apache 2.4.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.031746031746031744
+        }
+      ],
+      "context": [
+        {
+          "line": 1,
+          "time": "Sun Dec 04 04:47:44 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        },
+        {
+          "line": 2,
+          "time": "Sun Dec 04 04:47:44 2005",
+          "level": "error",
+          "message": "mod_jk child workerEnv in error state 6"
+        },
+        {
+          "line": 3,
+          "time": "Sun Dec 04 04:51:08 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 6725 in scoreboard slot 10"
+        },
+        {
+          "line": 4,
+          "time": "Sun Dec 04 04:51:09 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 6726 in scoreboard slot 8"
+        }
+      ],
+      "statistics": [
+        {
+          "level": "error",
+          "count": 595
+        },
+        {
+          "level": "notice",
+          "count": 1405
+        }
+      ],
+      "trace": [
+        {
+          "tool": "retrieve_logs",
+          "mode": "hybrid",
+          "ids": [
+            "L2",
+            "L9",
+            "L10",
+            "L11",
+            "L17"
+          ]
+        },
+        {
+          "tool": "retrieve_docs",
+          "ids": [
+            "D:workers",
+            "D:initialization",
+            "D:errorlog"
+          ]
+        },
+        {
+          "tool": "context",
+          "line": 2,
+          "radius": 2
+        },
+        {
+          "tool": "stats",
+          "result": [
+            {
+              "level": "error",
+              "count": 595
+            },
+            {
+              "level": "notice",
+              "count": 1405
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "provider_error": null,
+      "latency_ms": 9.563,
+      "warning": "2005 年 Apache/JK2 样本；仅事件证据检索，无确认根因标签。引用 ID 校验不等于语义正确性校验。"
+    }
+  },
+  {
+    "task": "E4-1",
+    "result": {
+      "question": "Directory index forbidden by rule",
+      "mode": "hybrid",
+      "generator": "offline-extractive",
+      "embedding": "lsa",
+      "insufficient_evidence": false,
+      "answer": {
+        "summary": "日志 L132 在 Sun Dec 04 05:15:09 2005 记录：[client <IP>] Directory index forbidden by rule: /var/www/html/。这是可观察现象，根因尚未确认。",
+        "hypotheses": [
+          "需结合版本、配置、访问日志和相邻时间记录验证；单一事件模板不能证明因果关系。"
+        ],
+        "next_checks": [
+          "只读核对相关配置和组件版本。",
+          "对照相邻日志、错误级别计数及文档中的适用版本。",
+          "Directory index forbidden by rule is an observed access denial. DirectoryIndex chooses an index file; automatic directory listing depends on Options Indexes. Read the effective directory configuration and index file availability. Do not enable directory listing as a blanket fix. The log alone does not establish which configuration caused denial."
+        ],
+        "citations": [
+          "L132",
+          "L580",
+          "L581",
+          "L582",
+          "L583",
+          "D:directory",
+          "D:workers",
+          "D:scoreboard"
+        ]
+      },
+      "logs": [
+        {
+          "id": "L132",
+          "line": 132,
+          "time": "Sun Dec 04 05:15:09 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "L580",
+          "line": 580,
+          "time": "Sun Dec 04 07:45:45 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "L581",
+          "line": 581,
+          "time": "Sun Dec 04 08:54:17 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.031746031746031744
+        },
+        {
+          "id": "L582",
+          "line": 582,
+          "time": "Sun Dec 04 09:35:12 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.03125
+        },
+        {
+          "id": "L583",
+          "line": 583,
+          "time": "Sun Dec 04 10:53:30 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.03076923076923077
+        }
+      ],
+      "documents": [
+        {
+          "id": "D:directory",
+          "title": "Directory index and access policy",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mod_autoindex.html",
+          "text": "Directory index forbidden by rule is an observed access denial. DirectoryIndex chooses an index file; automatic directory listing depends on Options Indexes. Read the effective directory configuration and index file availability. Do not enable directory listing as a blanket fix. The log alone does not establish which configuration caused denial.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "D:workers",
+          "title": "Connector worker investigation",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "mod_jk worker errors require version-specific configuration and backend evidence. Modern workers.properties documentation describes workers and startup configuration diagnostics. This is contextual reading, not an authoritative decoding of historical JK2 workerEnv error state 6. Read connector version and existing worker configuration, correlate backend logs. Do not infer that Tomcat is down from workerEnv alone.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.016129032258064516
+        },
+        {
+          "id": "D:scoreboard",
+          "title": "Child process scoreboard evidence",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+          "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.015873015873015872
+        }
+      ],
+      "context": [
+        {
+          "line": 130,
+          "time": "Sun Dec 04 05:12:30 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        },
+        {
+          "line": 131,
+          "time": "Sun Dec 04 05:12:30 2005",
+          "level": "error",
+          "message": "mod_jk child workerEnv in error state 6"
+        },
+        {
+          "line": 132,
+          "time": "Sun Dec 04 05:15:09 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 133,
+          "time": "Sun Dec 04 05:15:13 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 1000 in scoreboard slot 10"
+        },
+        {
+          "line": 134,
+          "time": "Sun Dec 04 05:15:16 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        }
+      ],
+      "statistics": [
+        {
+          "level": "error",
+          "count": 595
+        },
+        {
+          "level": "notice",
+          "count": 1405
+        }
+      ],
+      "trace": [
+        {
+          "tool": "retrieve_logs",
+          "mode": "hybrid",
+          "ids": [
+            "L132",
+            "L580",
+            "L581",
+            "L582",
+            "L583"
+          ]
+        },
+        {
+          "tool": "retrieve_docs",
+          "ids": [
+            "D:directory",
+            "D:workers",
+            "D:scoreboard"
+          ]
+        },
+        {
+          "tool": "context",
+          "line": 132,
+          "radius": 2
+        },
+        {
+          "tool": "stats",
+          "result": [
+            {
+              "level": "error",
+              "count": 595
+            },
+            {
+              "level": "notice",
+              "count": 1405
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "provider_error": null,
+      "latency_ms": 7.847,
+      "warning": "2005 年 Apache/JK2 样本；仅事件证据检索，无确认根因标签。引用 ID 校验不等于语义正确性校验。"
+    }
+  },
+  {
+    "task": "E4-2",
+    "result": {
+      "question": "Find client directory listing denied forbidden rule",
+      "mode": "hybrid",
+      "generator": "offline-extractive",
+      "embedding": "lsa",
+      "insufficient_evidence": false,
+      "answer": {
+        "summary": "日志 L132 在 Sun Dec 04 05:15:09 2005 记录：[client <IP>] Directory index forbidden by rule: /var/www/html/。这是可观察现象，根因尚未确认。",
+        "hypotheses": [
+          "需结合版本、配置、访问日志和相邻时间记录验证；单一事件模板不能证明因果关系。"
+        ],
+        "next_checks": [
+          "只读核对相关配置和组件版本。",
+          "对照相邻日志、错误级别计数及文档中的适用版本。",
+          "Directory index forbidden by rule is an observed access denial. DirectoryIndex chooses an index file; automatic directory listing depends on Options Indexes. Read the effective directory configuration and index file availability. Do not enable directory listing as a blanket fix. The log alone does not establish which configuration caused denial."
+        ],
+        "citations": [
+          "L132",
+          "L580",
+          "L581",
+          "L582",
+          "L583",
+          "D:directory",
+          "D:scoreboard",
+          "D:workers"
+        ]
+      },
+      "logs": [
+        {
+          "id": "L132",
+          "line": 132,
+          "time": "Sun Dec 04 05:15:09 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "L580",
+          "line": 580,
+          "time": "Sun Dec 04 07:45:45 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "L581",
+          "line": 581,
+          "time": "Sun Dec 04 08:54:17 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.031746031746031744
+        },
+        {
+          "id": "L582",
+          "line": 582,
+          "time": "Sun Dec 04 09:35:12 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.03125
+        },
+        {
+          "id": "L583",
+          "line": 583,
+          "time": "Sun Dec 04 10:53:30 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.03076923076923077
+        }
+      ],
+      "documents": [
+        {
+          "id": "D:directory",
+          "title": "Directory index and access policy",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mod_autoindex.html",
+          "text": "Directory index forbidden by rule is an observed access denial. DirectoryIndex chooses an index file; automatic directory listing depends on Options Indexes. Read the effective directory configuration and index file availability. Do not enable directory listing as a blanket fix. The log alone does not establish which configuration caused denial.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "D:scoreboard",
+          "title": "Child process scoreboard evidence",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+          "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "D:workers",
+          "title": "Connector worker investigation",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "mod_jk worker errors require version-specific configuration and backend evidence. Modern workers.properties documentation describes workers and startup configuration diagnostics. This is contextual reading, not an authoritative decoding of historical JK2 workerEnv error state 6. Read connector version and existing worker configuration, correlate backend logs. Do not infer that Tomcat is down from workerEnv alone.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.015873015873015872
+        }
+      ],
+      "context": [
+        {
+          "line": 130,
+          "time": "Sun Dec 04 05:12:30 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        },
+        {
+          "line": 131,
+          "time": "Sun Dec 04 05:12:30 2005",
+          "level": "error",
+          "message": "mod_jk child workerEnv in error state 6"
+        },
+        {
+          "line": 132,
+          "time": "Sun Dec 04 05:15:09 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 133,
+          "time": "Sun Dec 04 05:15:13 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 1000 in scoreboard slot 10"
+        },
+        {
+          "line": 134,
+          "time": "Sun Dec 04 05:15:16 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        }
+      ],
+      "statistics": [
+        {
+          "level": "error",
+          "count": 595
+        },
+        {
+          "level": "notice",
+          "count": 1405
+        }
+      ],
+      "trace": [
+        {
+          "tool": "retrieve_logs",
+          "mode": "hybrid",
+          "ids": [
+            "L132",
+            "L580",
+            "L581",
+            "L582",
+            "L583"
+          ]
+        },
+        {
+          "tool": "retrieve_docs",
+          "ids": [
+            "D:directory",
+            "D:scoreboard",
+            "D:workers"
+          ]
+        },
+        {
+          "tool": "context",
+          "line": 132,
+          "radius": 2
+        },
+        {
+          "tool": "stats",
+          "result": [
+            {
+              "level": "error",
+              "count": 595
+            },
+            {
+              "level": "notice",
+              "count": 1405
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "provider_error": null,
+      "latency_ms": 8.841,
+      "warning": "2005 年 Apache/JK2 样本；仅事件证据检索，无确认根因标签。引用 ID 校验不等于语义正确性校验。"
+    }
+  },
+  {
+    "task": "E5-1",
+    "result": {
+      "question": "jk2_init Can't find child in scoreboard",
+      "mode": "hybrid",
+      "generator": "offline-extractive",
+      "embedding": "lsa",
+      "insufficient_evidence": false,
+      "answer": {
+        "summary": "日志 L1032 在 Sun Dec 04 20:47:16 2005 记录：jk2_init() Can't find child 2082 in scoreboard。这是可观察现象，根因尚未确认。",
+        "hypotheses": [
+          "需结合版本、配置、访问日志和相邻时间记录验证；单一事件模板不能证明因果关系。"
+        ],
+        "next_checks": [
+          "只读核对相关配置和组件版本。",
+          "对照相邻日志、错误级别计数及文档中的适用版本。",
+          "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence."
+        ],
+        "citations": [
+          "L1032",
+          "L1544",
+          "L1043",
+          "L785",
+          "L789",
+          "D:scoreboard",
+          "D:initialization",
+          "D:directory"
+        ]
+      },
+      "logs": [
+        {
+          "id": "L1032",
+          "line": 1032,
+          "time": "Sun Dec 04 20:47:16 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 2082 in scoreboard",
+          "score": 0.03125763125763126
+        },
+        {
+          "id": "L1544",
+          "line": 1544,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 5620 in scoreboard",
+          "score": 0.030679156908665108
+        },
+        {
+          "id": "L1043",
+          "line": 1043,
+          "time": "Sun Dec 04 20:47:17 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 2086 in scoreboard",
+          "score": 0.030536130536130537
+        },
+        {
+          "id": "L785",
+          "line": 785,
+          "time": "Sun Dec 04 17:43:08 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 1566 in scoreboard",
+          "score": 0.03028233151183971
+        },
+        {
+          "id": "L789",
+          "line": 789,
+          "time": "Sun Dec 04 17:43:08 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 1567 in scoreboard",
+          "score": 0.03021353930031804
+        }
+      ],
+      "documents": [
+        {
+          "id": "D:scoreboard",
+          "title": "Child process scoreboard evidence",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+          "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "D:initialization",
+          "title": "Worker initialization evidence",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "workerEnv.init() ok and mod_jk child init are historical JK2 initialization messages. Initialization success in one record does not prove end-to-end service health. JK2 is a historical connector; inspect archived version information before applying modern mod_jk advice. Compare neighboring errors and connector configuration.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "D:directory",
+          "title": "Directory index and access policy",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mod_autoindex.html",
+          "text": "Directory index forbidden by rule is an observed access denial. DirectoryIndex chooses an index file; automatic directory listing depends on Options Indexes. Read the effective directory configuration and index file availability. Do not enable directory listing as a blanket fix. The log alone does not establish which configuration caused denial.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.015873015873015872
+        }
+      ],
+      "context": [
+        {
+          "line": 1030,
+          "time": "Sun Dec 04 20:44:30 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 2061 in scoreboard slot 8"
+        },
+        {
+          "line": 1031,
+          "time": "Sun Dec 04 20:47:16 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 2081 in scoreboard slot 6"
+        },
+        {
+          "line": 1032,
+          "time": "Sun Dec 04 20:47:16 2005",
+          "level": "error",
+          "message": "jk2_init() Can't find child 2082 in scoreboard"
+        },
+        {
+          "line": 1033,
+          "time": "Sun Dec 04 20:47:16 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 2083 in scoreboard slot 8"
+        },
+        {
+          "line": 1034,
+          "time": "Sun Dec 04 20:47:16 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        }
+      ],
+      "statistics": [
+        {
+          "level": "error",
+          "count": 595
+        },
+        {
+          "level": "notice",
+          "count": 1405
+        }
+      ],
+      "trace": [
+        {
+          "tool": "retrieve_logs",
+          "mode": "hybrid",
+          "ids": [
+            "L1032",
+            "L1544",
+            "L1043",
+            "L785",
+            "L789"
+          ]
+        },
+        {
+          "tool": "retrieve_docs",
+          "ids": [
+            "D:scoreboard",
+            "D:initialization",
+            "D:directory"
+          ]
+        },
+        {
+          "tool": "context",
+          "line": 1032,
+          "radius": 2
+        },
+        {
+          "tool": "stats",
+          "result": [
+            {
+              "level": "error",
+              "count": 595
+            },
+            {
+              "level": "notice",
+              "count": 1405
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "provider_error": null,
+      "latency_ms": 8.065,
+      "warning": "2005 年 Apache/JK2 样本；仅事件证据检索，无确认根因标签。引用 ID 校验不等于语义正确性校验。"
+    }
+  },
+  {
+    "task": "E5-2",
+    "result": {
+      "question": "Find missing child scoreboard records",
+      "mode": "hybrid",
+      "generator": "offline-extractive",
+      "embedding": "lsa",
+      "insufficient_evidence": false,
+      "answer": {
+        "summary": "日志 L1544 在 Mon Dec 05 11:06:52 2005 记录：jk2_init() Can't find child 5620 in scoreboard。这是可观察现象，根因尚未确认。",
+        "hypotheses": [
+          "需结合版本、配置、访问日志和相邻时间记录验证；单一事件模板不能证明因果关系。"
+        ],
+        "next_checks": [
+          "只读核对相关配置和组件版本。",
+          "对照相邻日志、错误级别计数及文档中的适用版本。",
+          "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence."
+        ],
+        "citations": [
+          "L1544",
+          "L1032",
+          "L1043",
+          "L785",
+          "L789",
+          "D:scoreboard",
+          "D:initialization",
+          "D:errorlog"
+        ]
+      },
+      "logs": [
+        {
+          "id": "L1544",
+          "line": 1544,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 5620 in scoreboard",
+          "score": 0.030679156908665108
+        },
+        {
+          "id": "L1032",
+          "line": 1032,
+          "time": "Sun Dec 04 20:47:16 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 2082 in scoreboard",
+          "score": 0.03057889822595705
+        },
+        {
+          "id": "L1043",
+          "line": 1043,
+          "time": "Sun Dec 04 20:47:17 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 2086 in scoreboard",
+          "score": 0.030309988518943745
+        },
+        {
+          "id": "L785",
+          "line": 785,
+          "time": "Sun Dec 04 17:43:08 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 1566 in scoreboard",
+          "score": 0.03028233151183971
+        },
+        {
+          "id": "L789",
+          "line": 789,
+          "time": "Sun Dec 04 17:43:08 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 1567 in scoreboard",
+          "score": 0.03021353930031804
+        }
+      ],
+      "documents": [
+        {
+          "id": "D:scoreboard",
+          "title": "Child process scoreboard evidence",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+          "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "D:initialization",
+          "title": "Worker initialization evidence",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "workerEnv.init() ok and mod_jk child init are historical JK2 initialization messages. Initialization success in one record does not prove end-to-end service health. JK2 is a historical connector; inspect archived version information before applying modern mod_jk advice. Compare neighboring errors and connector configuration.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "D:errorlog",
+          "title": "Reading the error log",
+          "url": "https://httpd.apache.org/docs/2.4/logs.html#errorlog",
+          "text": "Error logs record diagnostic messages, including severity and time. A notice is not itself evidence of a failed request. Correlate timestamps and access logs before inferring impact. Historical formats differ from Apache 2.4.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.015873015873015872
+        }
+      ],
+      "context": [
+        {
+          "line": 1542,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        },
+        {
+          "line": 1543,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "error",
+          "message": "mod_jk child init 1 -2"
+        },
+        {
+          "line": 1544,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "error",
+          "message": "jk2_init() Can't find child 5620 in scoreboard"
+        },
+        {
+          "line": 1545,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        },
+        {
+          "line": 1546,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "error",
+          "message": "mod_jk child init 1 -2"
+        }
+      ],
+      "statistics": [
+        {
+          "level": "error",
+          "count": 595
+        },
+        {
+          "level": "notice",
+          "count": 1405
+        }
+      ],
+      "trace": [
+        {
+          "tool": "retrieve_logs",
+          "mode": "hybrid",
+          "ids": [
+            "L1544",
+            "L1032",
+            "L1043",
+            "L785",
+            "L789"
+          ]
+        },
+        {
+          "tool": "retrieve_docs",
+          "ids": [
+            "D:scoreboard",
+            "D:initialization",
+            "D:errorlog"
+          ]
+        },
+        {
+          "tool": "context",
+          "line": 1544,
+          "radius": 2
+        },
+        {
+          "tool": "stats",
+          "result": [
+            {
+              "level": "error",
+              "count": 595
+            },
+            {
+              "level": "notice",
+              "count": 1405
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "provider_error": null,
+      "latency_ms": 7.376,
+      "warning": "2005 年 Apache/JK2 样本；仅事件证据检索，无确认根因标签。引用 ID 校验不等于语义正确性校验。"
+    }
+  },
+  {
+    "task": "E6-1",
+    "result": {
+      "question": "mod_jk child init",
+      "mode": "hybrid",
+      "generator": "offline-extractive",
+      "embedding": "lsa",
+      "insufficient_evidence": false,
+      "answer": {
+        "summary": "日志 L796 在 Sun Dec 04 17:43:12 2005 记录：mod_jk child init 1 -2。这是可观察现象，根因尚未确认。",
+        "hypotheses": [
+          "需结合版本、配置、访问日志和相邻时间记录验证；单一事件模板不能证明因果关系。"
+        ],
+        "next_checks": [
+          "只读核对相关配置和组件版本。",
+          "对照相邻日志、错误级别计数及文档中的适用版本。",
+          "workerEnv.init() ok and mod_jk child init are historical JK2 initialization messages. Initialization success in one record does not prove end-to-end service health. JK2 is a historical connector; inspect archived version information before applying modern mod_jk advice. Compare neighboring errors and connector configuration."
+        ],
+        "citations": [
+          "L796",
+          "L802",
+          "L1037",
+          "L1042",
+          "L1045",
+          "D:initialization",
+          "D:scoreboard",
+          "D:workers"
+        ]
+      },
+      "logs": [
+        {
+          "id": "L796",
+          "line": 796,
+          "time": "Sun Dec 04 17:43:12 2005",
+          "level": "error",
+          "text": "mod_jk child init 1 -2",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "L802",
+          "line": 802,
+          "time": "Sun Dec 04 17:43:12 2005",
+          "level": "error",
+          "text": "mod_jk child init 1 -2",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "L1037",
+          "line": 1037,
+          "time": "Sun Dec 04 20:47:16 2005",
+          "level": "error",
+          "text": "mod_jk child init 1 -2",
+          "score": 0.031746031746031744
+        },
+        {
+          "id": "L1042",
+          "line": 1042,
+          "time": "Sun Dec 04 20:47:17 2005",
+          "level": "error",
+          "text": "mod_jk child init 1 -2",
+          "score": 0.03125
+        },
+        {
+          "id": "L1045",
+          "line": 1045,
+          "time": "Sun Dec 04 20:47:17 2005",
+          "level": "error",
+          "text": "mod_jk child init 1 -2",
+          "score": 0.03076923076923077
+        }
+      ],
+      "documents": [
+        {
+          "id": "D:initialization",
+          "title": "Worker initialization evidence",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "workerEnv.init() ok and mod_jk child init are historical JK2 initialization messages. Initialization success in one record does not prove end-to-end service health. JK2 is a historical connector; inspect archived version information before applying modern mod_jk advice. Compare neighboring errors and connector configuration.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "D:scoreboard",
+          "title": "Child process scoreboard evidence",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+          "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "D:workers",
+          "title": "Connector worker investigation",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "mod_jk worker errors require version-specific configuration and backend evidence. Modern workers.properties documentation describes workers and startup configuration diagnostics. This is contextual reading, not an authoritative decoding of historical JK2 workerEnv error state 6. Read connector version and existing worker configuration, correlate backend logs. Do not infer that Tomcat is down from workerEnv alone.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.031746031746031744
+        }
+      ],
+      "context": [
+        {
+          "line": 794,
+          "time": "Sun Dec 04 17:43:12 2005",
+          "level": "error",
+          "message": "mod_jk child workerEnv in error state 8"
+        },
+        {
+          "line": 795,
+          "time": "Sun Dec 04 17:43:12 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        },
+        {
+          "line": 796,
+          "time": "Sun Dec 04 17:43:12 2005",
+          "level": "error",
+          "message": "mod_jk child init 1 -2"
+        },
+        {
+          "line": 797,
+          "time": "Sun Dec 04 17:43:12 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        },
+        {
+          "line": 798,
+          "time": "Sun Dec 04 17:43:12 2005",
+          "level": "error",
+          "message": "mod_jk child workerEnv in error state 7"
+        }
+      ],
+      "statistics": [
+        {
+          "level": "error",
+          "count": 595
+        },
+        {
+          "level": "notice",
+          "count": 1405
+        }
+      ],
+      "trace": [
+        {
+          "tool": "retrieve_logs",
+          "mode": "hybrid",
+          "ids": [
+            "L796",
+            "L802",
+            "L1037",
+            "L1042",
+            "L1045"
+          ]
+        },
+        {
+          "tool": "retrieve_docs",
+          "ids": [
+            "D:initialization",
+            "D:scoreboard",
+            "D:workers"
+          ]
+        },
+        {
+          "tool": "context",
+          "line": 796,
+          "radius": 2
+        },
+        {
+          "tool": "stats",
+          "result": [
+            {
+              "level": "error",
+              "count": 595
+            },
+            {
+              "level": "notice",
+              "count": 1405
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "provider_error": null,
+      "latency_ms": 10.139,
+      "warning": "2005 年 Apache/JK2 样本；仅事件证据检索，无确认根因标签。引用 ID 校验不等于语义正确性校验。"
+    }
+  },
+  {
+    "task": "E6-2",
+    "result": {
+      "question": "Find mod_jk child initialization records",
+      "mode": "hybrid",
+      "generator": "offline-extractive",
+      "embedding": "lsa",
+      "insufficient_evidence": false,
+      "answer": {
+        "summary": "日志 L1032 在 Sun Dec 04 20:47:16 2005 记录：jk2_init() Can't find child 2082 in scoreboard。这是可观察现象，根因尚未确认。",
+        "hypotheses": [
+          "需结合版本、配置、访问日志和相邻时间记录验证；单一事件模板不能证明因果关系。"
+        ],
+        "next_checks": [
+          "只读核对相关配置和组件版本。",
+          "对照相邻日志、错误级别计数及文档中的适用版本。",
+          "workerEnv.init() ok and mod_jk child init are historical JK2 initialization messages. Initialization success in one record does not prove end-to-end service health. JK2 is a historical connector; inspect archived version information before applying modern mod_jk advice. Compare neighboring errors and connector configuration."
+        ],
+        "citations": [
+          "L1032",
+          "L1544",
+          "L1043",
+          "L785",
+          "L789",
+          "D:initialization",
+          "D:scoreboard",
+          "D:workers"
+        ]
+      },
+      "logs": [
+        {
+          "id": "L1032",
+          "line": 1032,
+          "time": "Sun Dec 04 20:47:16 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 2082 in scoreboard",
+          "score": 0.03125763125763126
+        },
+        {
+          "id": "L1544",
+          "line": 1544,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 5620 in scoreboard",
+          "score": 0.030679156908665108
+        },
+        {
+          "id": "L1043",
+          "line": 1043,
+          "time": "Sun Dec 04 20:47:17 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 2086 in scoreboard",
+          "score": 0.030536130536130537
+        },
+        {
+          "id": "L785",
+          "line": 785,
+          "time": "Sun Dec 04 17:43:08 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 1566 in scoreboard",
+          "score": 0.03028233151183971
+        },
+        {
+          "id": "L789",
+          "line": 789,
+          "time": "Sun Dec 04 17:43:08 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 1567 in scoreboard",
+          "score": 0.03021353930031804
+        }
+      ],
+      "documents": [
+        {
+          "id": "D:initialization",
+          "title": "Worker initialization evidence",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "workerEnv.init() ok and mod_jk child init are historical JK2 initialization messages. Initialization success in one record does not prove end-to-end service health. JK2 is a historical connector; inspect archived version information before applying modern mod_jk advice. Compare neighboring errors and connector configuration.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "D:scoreboard",
+          "title": "Child process scoreboard evidence",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+          "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.032266458495966696
+        },
+        {
+          "id": "D:workers",
+          "title": "Connector worker investigation",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "mod_jk worker errors require version-specific configuration and backend evidence. Modern workers.properties documentation describes workers and startup configuration diagnostics. This is contextual reading, not an authoritative decoding of historical JK2 workerEnv error state 6. Read connector version and existing worker configuration, correlate backend logs. Do not infer that Tomcat is down from workerEnv alone.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03200204813108039
+        }
+      ],
+      "context": [
+        {
+          "line": 1030,
+          "time": "Sun Dec 04 20:44:30 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 2061 in scoreboard slot 8"
+        },
+        {
+          "line": 1031,
+          "time": "Sun Dec 04 20:47:16 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 2081 in scoreboard slot 6"
+        },
+        {
+          "line": 1032,
+          "time": "Sun Dec 04 20:47:16 2005",
+          "level": "error",
+          "message": "jk2_init() Can't find child 2082 in scoreboard"
+        },
+        {
+          "line": 1033,
+          "time": "Sun Dec 04 20:47:16 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 2083 in scoreboard slot 8"
+        },
+        {
+          "line": 1034,
+          "time": "Sun Dec 04 20:47:16 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        }
+      ],
+      "statistics": [
+        {
+          "level": "error",
+          "count": 595
+        },
+        {
+          "level": "notice",
+          "count": 1405
+        }
+      ],
+      "trace": [
+        {
+          "tool": "retrieve_logs",
+          "mode": "hybrid",
+          "ids": [
+            "L1032",
+            "L1544",
+            "L1043",
+            "L785",
+            "L789"
+          ]
+        },
+        {
+          "tool": "retrieve_docs",
+          "ids": [
+            "D:initialization",
+            "D:scoreboard",
+            "D:workers"
+          ]
+        },
+        {
+          "tool": "context",
+          "line": 1032,
+          "radius": 2
+        },
+        {
+          "tool": "stats",
+          "result": [
+            {
+              "level": "error",
+              "count": 595
+            },
+            {
+              "level": "notice",
+              "count": 1405
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "provider_error": null,
+      "latency_ms": 8.931,
+      "warning": "2005 年 Apache/JK2 样本；仅事件证据检索，无确认根因标签。引用 ID 校验不等于语义正确性校验。"
+    }
+  },
+  {
+    "task": "N-1",
+    "result": {
+      "question": "Kubernetes pod OOMKilled memory leak",
+      "mode": "hybrid",
+      "generator": "offline-extractive",
+      "embedding": "lsa",
+      "insufficient_evidence": true,
+      "answer": {
+        "summary": "证据不足，无法从当前 Apache 样本确认该现象。",
+        "hypotheses": [],
+        "next_checks": [
+          "提供相应系统、时间窗口及已脱敏日志。"
+        ],
+        "citations": []
+      },
+      "logs": [
+        {
+          "id": "L132",
+          "line": 132,
+          "time": "Sun Dec 04 05:15:09 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.01639344262295082
+        },
+        {
+          "id": "L580",
+          "line": 580,
+          "time": "Sun Dec 04 07:45:45 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.016129032258064516
+        },
+        {
+          "id": "L581",
+          "line": 581,
+          "time": "Sun Dec 04 08:54:17 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.015873015873015872
+        },
+        {
+          "id": "L582",
+          "line": 582,
+          "time": "Sun Dec 04 09:35:12 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.015625
+        },
+        {
+          "id": "L583",
+          "line": 583,
+          "time": "Sun Dec 04 10:53:30 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.015384615384615385
+        }
+      ],
+      "documents": [
+        {
+          "id": "D:limits",
+          "title": "Evidence limits and missing incidents",
+          "url": "https://github.com/logpai/loghub/tree/master/Apache",
+          "text": "The Apache 2k sample contains event templates rather than confirmed incident root causes. No CPU, disk, database or Kubernetes incident labels are provided. If asked for an unrelated failure, request relevant logs and abstain. Event evidence retrieval is not root cause diagnosis.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "D:scoreboard",
+          "title": "Child process scoreboard evidence",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+          "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "D:directory",
+          "title": "Directory index and access policy",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mod_autoindex.html",
+          "text": "Directory index forbidden by rule is an observed access denial. DirectoryIndex chooses an index file; automatic directory listing depends on Options Indexes. Read the effective directory configuration and index file availability. Do not enable directory listing as a blanket fix. The log alone does not establish which configuration caused denial.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.015873015873015872
+        }
+      ],
+      "context": [],
+      "statistics": [],
+      "trace": [
+        {
+          "tool": "retrieve_logs",
+          "mode": "hybrid",
+          "ids": [
+            "L132",
+            "L580",
+            "L581",
+            "L582",
+            "L583"
+          ]
+        },
+        {
+          "tool": "retrieve_docs",
+          "ids": [
+            "D:limits",
+            "D:scoreboard",
+            "D:directory"
+          ]
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "provider_error": null,
+      "latency_ms": 6.696,
+      "warning": "2005 年 Apache/JK2 样本；仅事件证据检索，无确认根因标签。引用 ID 校验不等于语义正确性校验。"
+    }
+  },
+  {
+    "task": "N-2",
+    "result": {
+      "question": "PostgreSQL deadlock transaction rollback",
+      "mode": "hybrid",
+      "generator": "offline-extractive",
+      "embedding": "lsa",
+      "insufficient_evidence": true,
+      "answer": {
+        "summary": "证据不足，无法从当前 Apache 样本确认该现象。",
+        "hypotheses": [],
+        "next_checks": [
+          "提供相应系统、时间窗口及已脱敏日志。"
+        ],
+        "citations": []
+      },
+      "logs": [],
+      "documents": [
+        {
+          "id": "D:initialization",
+          "title": "Worker initialization evidence",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "workerEnv.init() ok and mod_jk child init are historical JK2 initialization messages. Initialization success in one record does not prove end-to-end service health. JK2 is a historical connector; inspect archived version information before applying modern mod_jk advice. Compare neighboring errors and connector configuration.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.01639344262295082
+        },
+        {
+          "id": "D:workers",
+          "title": "Connector worker investigation",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "mod_jk worker errors require version-specific configuration and backend evidence. Modern workers.properties documentation describes workers and startup configuration diagnostics. This is contextual reading, not an authoritative decoding of historical JK2 workerEnv error state 6. Read connector version and existing worker configuration, correlate backend logs. Do not infer that Tomcat is down from workerEnv alone.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.016129032258064516
+        },
+        {
+          "id": "D:scoreboard",
+          "title": "Child process scoreboard evidence",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+          "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.015873015873015872
+        }
+      ],
+      "context": [],
+      "statistics": [],
+      "trace": [
+        {
+          "tool": "retrieve_logs",
+          "mode": "hybrid",
+          "ids": []
+        },
+        {
+          "tool": "retrieve_docs",
+          "ids": [
+            "D:initialization",
+            "D:workers",
+            "D:scoreboard"
+          ]
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "provider_error": null,
+      "latency_ms": 5.946,
+      "warning": "2005 年 Apache/JK2 样本；仅事件证据检索，无确认根因标签。引用 ID 校验不等于语义正确性校验。"
+    }
+  },
+  {
+    "task": "N-3",
+    "result": {
+      "question": "NVMe disk full filesystem corruption",
+      "mode": "hybrid",
+      "generator": "offline-extractive",
+      "embedding": "lsa",
+      "insufficient_evidence": true,
+      "answer": {
+        "summary": "证据不足，无法从当前 Apache 样本确认该现象。",
+        "hypotheses": [],
+        "next_checks": [
+          "提供相应系统、时间窗口及已脱敏日志。"
+        ],
+        "citations": []
+      },
+      "logs": [
+        {
+          "id": "L1544",
+          "line": 1544,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 5620 in scoreboard",
+          "score": 0.01639344262295082
+        },
+        {
+          "id": "L1550",
+          "line": 1550,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 5622 in scoreboard",
+          "score": 0.016129032258064516
+        },
+        {
+          "id": "L1547",
+          "line": 1547,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 5621 in scoreboard",
+          "score": 0.015873015873015872
+        },
+        {
+          "id": "L1541",
+          "line": 1541,
+          "time": "Mon Dec 05 11:06:52 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 5619 in scoreboard",
+          "score": 0.015625
+        },
+        {
+          "id": "L1032",
+          "line": 1032,
+          "time": "Sun Dec 04 20:47:16 2005",
+          "level": "error",
+          "text": "jk2_init() Can't find child 2082 in scoreboard",
+          "score": 0.015384615384615385
+        }
+      ],
+      "documents": [
+        {
+          "id": "D:scoreboard",
+          "title": "Child process scoreboard evidence",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+          "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "D:limits",
+          "title": "Evidence limits and missing incidents",
+          "url": "https://github.com/logpai/loghub/tree/master/Apache",
+          "text": "The Apache 2k sample contains event templates rather than confirmed incident root causes. No CPU, disk, database or Kubernetes incident labels are provided. If asked for an unrelated failure, request relevant logs and abstain. Event evidence retrieval is not root cause diagnosis.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.032018442622950824
+        },
+        {
+          "id": "D:directory",
+          "title": "Directory index and access policy",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mod_autoindex.html",
+          "text": "Directory index forbidden by rule is an observed access denial. DirectoryIndex chooses an index file; automatic directory listing depends on Options Indexes. Read the effective directory configuration and index file availability. Do not enable directory listing as a blanket fix. The log alone does not establish which configuration caused denial.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.016129032258064516
+        }
+      ],
+      "context": [],
+      "statistics": [],
+      "trace": [
+        {
+          "tool": "retrieve_logs",
+          "mode": "hybrid",
+          "ids": [
+            "L1544",
+            "L1550",
+            "L1547",
+            "L1541",
+            "L1032"
+          ]
+        },
+        {
+          "tool": "retrieve_docs",
+          "ids": [
+            "D:scoreboard",
+            "D:limits",
+            "D:directory"
+          ]
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "provider_error": null,
+      "latency_ms": 6.046,
+      "warning": "2005 年 Apache/JK2 样本；仅事件证据检索，无确认根因标签。引用 ID 校验不等于语义正确性校验。"
+    }
+  }
+]

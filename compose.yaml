@@ -1,0 +1,10 @@
+services:
+  opspilot:
+    build: .
+    ports: ["127.0.0.1:8765:8765"]
+    environment:
+      OPSPILOT_LLM: offline
+    read_only: true
+    tmpfs: ["/tmp"]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: ["ALL"]

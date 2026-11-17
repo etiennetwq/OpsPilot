@@ -1,0 +1,37 @@
+[
+  {
+    "url": "https://httpd.apache.org/docs/2.4/logs.html#errorlog",
+    "status": 200,
+    "sha256_fetched_page": "fc209641fe2bb9ced863d68e03118e720053cfb1e17ba151848b779bdb6ef676",
+    "retrieved_utc": "2026-11-17T02:02:16.113986+00:00",
+    "note": "Page bytes used for source verification, not redistributed."
+  },
+  {
+    "url": "https://httpd.apache.org/docs/2.4/mod/mod_autoindex.html",
+    "status": 200,
+    "sha256_fetched_page": "0dc0087598609b1ff8b143384704ad0456688f0cc9a8c6c27a648221cd46bd97",
+    "retrieved_utc": "2026-11-17T02:02:17.938592+00:00",
+    "note": "Page bytes used for source verification, not redistributed."
+  },
+  {
+    "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+    "status": 200,
+    "sha256_fetched_page": "9a4e617fe00d2a961fad4904862596c1f9ae760dad3021a4bf2cad90f040f176",
+    "retrieved_utc": "2026-11-17T02:02:19.594889+00:00",
+    "note": "Page bytes used for source verification, not redistributed."
+  },
+  {
+    "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+    "status": 200,
+    "sha256_fetched_page": "a6416553f2341d4315892f619d5f4db0787bb0a3b0074187aba646e3e52aad41",
+    "retrieved_utc": "2026-11-17T02:02:21.170685+00:00",
+    "note": "Page bytes used for source verification, not redistributed."
+  },
+  {
+    "url": "https://github.com/logpai/loghub/tree/master/Apache",
+    "status": 200,
+    "sha256_fetched_page": "34c3b8e9b01be7504b0d912ccd38759b7d808457ca6518ce66d4493f3430f180",
+    "retrieved_utc": "2026-11-17T02:02:22.744672+00:00",
+    "note": "Page bytes used for source verification, not redistributed."
+  }
+]
