@@ -1,3 +1,6 @@
 * text=auto eol=lf
-data/source/* -text
+data/source/* -text -diff
+eval/*.json -text
+kb/*.json -text
+reports/*.json -text
 *.jpg -text

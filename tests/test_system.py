@@ -87,4 +87,3 @@ def test_api_usage_accounting(api_env,monkeypatch):
 def test_provider_failure_does_not_leak(api_env):
     with httpx.Client(transport=httpx.MockTransport(lambda r:httpx.Response(401,text='private-provider-body'))) as c:
         with pytest.raises(ValueError,match='withheld'): generate('q',[],[],c)
-
