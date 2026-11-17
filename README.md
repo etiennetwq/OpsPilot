@@ -4,6 +4,32 @@
 
 ![本机演示](reports/demo.jpg)
 
+
+## v0.2 模型自主工具调用
+
+新增真正由模型选择工具的模式：网页选择“模型自主工具调用 / DeepSeek”。模型通过 Chat Completions tool_calls 决定查询参数及下一步；服务端只执行白名单中的 search_logs、search_docs、get_context、log_stats，并用 finish_investigation 接收校验后的最终答案。没有脚本模拟规划器，没有 Shell 或任意 SQL。
+
+默认固定 Hybrid 流程继续保留，用于离线演示和对照。工具调用模式必须配置真实模型，不会暗中降级成离线结果。当前已实际连接 DeepSeek，探索性任务已观察到模型选择检索/统计工具后完成回答；首次复杂任务因最终 JSON/长度问题失败，已保留失败证据并增加长度约束与错误反馈。最终对照评测见 reports/agent_comparison_report.md；原 reports/offline_report.md 仅是旧固定流程基线，不能当成新 Agent 成绩。
+
+### 本机安全配置
+
+启动服务后访问 `/setup`，自行输入 DeepSeek 密钥与模型名，默认 deepseek-flash。密钥仅保存在服务进程内存，保存后输入框清空；GET /config 只返回配置状态、模型和固定域名。不会写入磁盘、截图、trace 或 Git；服务重启后需重新输入。请不要在聊天中粘贴密钥。网页配置仅允许 DeepSeek 官方域名，环境变量仍支持其他 HTTPS OpenAI 兼容端点。
+
+源码可通过 `.venv/Scripts/python -m uvicorn opspilot.api:app --host 127.0.0.1 --port 8766` 运行。当前本机升级演示为 http://127.0.0.1:8766；Docker 默认端口仍为8765，两个服务内存配置互不共享。
+
+CLI：`python -m opspilot.cli diagnose "Investigate Directory index forbidden" --mode agent`（从环境变量读取本项目的 API 配置）。
+
+真实对照：`python scripts/evaluate_agent_http.py --base http://127.0.0.1:8766`。该脚本只调用本机 API，不读取密钥；每次对四种模式各运行六题，可能产生多轮 API 费用。结果逐题保存，费用未配置时为未知，不记作0。
+
+### 调用边界
+
+- 最多6轮模型请求、12次工具调用、每轮最多1400输出Token、90秒总时间检查。
+- 已观测累计Token达到48000时停止下一轮；这是观测停止阈值，单次响应可能使累计用量超过该值，不是服务商硬性Token账单上限。
+- 工具参数由 Pydantic 严格校验，额外参数、越界、字符串伪整数、未知工具、重复调用与伪造引用均拒绝。
+- 模型可以根据反馈修正；工具/轮数/超时耗尽返回明确未完成状态，不伪称诊断完成。
+- 最终回答必须提交结构化工具，引用只能来自本次实际工具结果。日志诊断还需引用文档；计数使用 S: 统计证据。引用存在性仍不能证明自然语言语义正确。
+- 配置与结果响应 no-store；拒绝跨源修改与非本机Host；同一服务同时最多执行一个动态调查。仅适合本机单用户，不能当作完整公网鉴权方案。
+
 ## 直接运行
 
 当前机器已在本仓库 `.venv` 安装依赖，直接在 VS Code 打开本目录，在终端执行：
@@ -46,7 +72,7 @@ python -m venv .venv
 - BM25：词项分词、k1=1.5、b=0.75。默认向量：字符 3–5 gram TF-IDF + 最多 64 维 TruncatedSVD，固定随机种子 42，余弦相似度。它是可离线复现的 LSA，不是预训练语义 embedding。
 - Hybrid 使用 RRF（常数 60）；可选词项覆盖率 reranker，对最多 20 个候选重排。没有把它包装为神经 cross-encoder。
 - 可选本地 SentenceTransformer embedding：安装 `.[neural]`，将 `OPSPILOT_EMBEDDING=sentence-transformer`、`OPSPILOT_EMBEDDING_MODEL` 设为**已下载本地模型目录**。不自动下载或执行远端模型代码；此扩展未在本次实测。
-- Agent 是有界条件工作流：检索日志/文档 → 证据门槛 → 只读相邻行/统计 → 证据摘录或 LLM 生成 → 引用 ID 校验。不是能自动修复系统的自主 Agent。
+- 固定基线是有界条件工作流：检索日志/文档 → 证据门槛 → 只读相邻行/统计 → 证据摘录或 LLM 生成 → 引用 ID 校验。不执行自动修复。v0.2 的模型自主工具选择是另一种独立运行模式。
 - 6 条知识库阅读笔记由本项目撰写，附官方来源和版本说明，非完整官方文档镜像。链接访问状态及页面哈希见 `kb/provenance.json`。
 - 只有事件现象标签，没有事故时间窗、影响范围或确认根因。默认离线回答是确定性证据摘录，**不是离线大模型**。
 
@@ -78,7 +104,7 @@ $env:OPSPILOT_EVAL_LIVE = '1'
 .\.venv\Scripts\python -m opspilot.cli evaluate
 ```
 
-此时关键词保持离线，vector 与 hybrid 各最多 15 次 API 请求（拒答不调用）；保存 `reports/live_results.json`、`live_report.md`、`live_examples.json`，默认不纳入 Git。provider_failures 必须同时报告；未配置密钥、失败、离线回退均不能当成真实 LLM 成绩。live 报告沿用事件证据指标，不评价自然语言因果正确性。本次**没有真实付费模型调用**。
+此时关键词保持离线，vector 与 hybrid 各最多 15 次 API 请求（拒答不调用）；保存 `reports/live_results.json`、`live_report.md`、`live_examples.json`，默认不纳入 Git。provider_failures 必须同时报告；未配置密钥、失败、离线回退均不能当成真实 LLM 成绩。live 报告沿用事件证据指标，不评价自然语言因果正确性。v0.1 交付时未调用真实模型；v0.2 已接入 DeepSeek，具体实测范围以新评测和验证记录为准。
 
 ## API
 

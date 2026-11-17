@@ -19,7 +19,7 @@
 
 ## API 配置
 
-环境变量在服务启动时生效；`.env.example` 是示例，程序不自动加载 `.env`。不要把密钥写到代码、README、截图或 Git。CLI `--llm` 是显式 API 请求；网页还要求服务端 `OPSPILOT_LLM=api`。
+环境变量在服务启动时生效；`.env.example` 是示例，程序不自动加载 `.env`。不要把密钥写到代码、README、截图或 Git。CLI `--llm` 是显式 API 请求；网页使用本服务内存配置；v0.2 不再要求额外设置 OPSPILOT_LLM 开关。
 
 真实 API 需支持 JSON 输出参数。若服务商不兼容该参数、超时或认证错误，返回 provider_error 并降级到离线证据。费用缺少价格或 provider usage 时为 null；usage 由 provider 返回而非本地字符数估算。超时不自动重试，避免重复计费。
 
@@ -38,3 +38,12 @@ Compose 默认离线。如果需要 API，请显式将所需环境变量加入�
 3. 相邻行只用于调查，不证明不同错误有共同根因。
 4. 检索失败要记录；不能用改写问题后成功替代原问题的评测记录。
 5. README 与报告中的任务成功只是预设的证据检索规则，不是生产排障成功率。
+
+
+## v0.2 真实工具调用
+
+本机进入 /setup 保存密钥，选择模型自主工具调用。重启需重新配置，原工作流的 llm=true 也可使用同一内存配置。GET /runs/latest 返回最近一次动态调查的脱敏结果，不包含密钥。
+
+status completed / abstained 才代表模型正常结束；round_limit、tool_limit、token_limit、time_limit、context_limit、provider_error、protocol_error、configuration_required 均表示未完成或配置异常。无证据拒答与预算耗尽不是一回事。工具 schema rejected 会反馈字段与错误类型，不回显敏感原始参数。遇到长JSON被截断应缩短回答，不能绕过引用检查。
+
+本次评测输入是固定六条人工行为任务；执行 scripts/evaluate_agent_http.py 后保留 live_agent_comparison.json 的全部成功失败。打包时仅纳入检查过的脱敏报告副本，不纳入任何密钥或本机配置。

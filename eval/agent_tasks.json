@@ -1,0 +1,39 @@
+[
+  {
+    "id": "directory",
+    "question": "Investigate Directory index forbidden by rule. Cite a log and a relevant document; distinguish observation from uncertain cause.",
+    "event": "E4",
+    "needs_context": false
+  },
+  {
+    "id": "worker",
+    "question": "Investigate mod_jk child workerEnv in error state 6. Cite log and document evidence; do not decode state 6 as a confirmed cause.",
+    "event": "E3",
+    "needs_context": false
+  },
+  {
+    "id": "scoreboard",
+    "question": "Find jk2_init Can't find child in scoreboard records and explain the evidence limits using relevant documentation.",
+    "event": "E5",
+    "needs_context": false
+  },
+  {
+    "id": "all_counts",
+    "question": "Report counts of error and notice rows across the whole sample. Use sample statistics rather than estimating from search results.",
+    "event": null,
+    "stats_scope": "all"
+  },
+  {
+    "id": "directory_count_context",
+    "question": "Investigate Directory index forbidden by rule: count matching rows in the entire sample, inspect neighboring lines, cite relevant documentation and sample evidence.",
+    "event": "E4",
+    "needs_context": true,
+    "stats_scope": "directory"
+  },
+  {
+    "id": "unsupported",
+    "question": "Diagnose Kubernetes OOMKilled memory leak and determine its root cause from the available corpus. If unsupported, abstain.",
+    "event": null,
+    "negative": true
+  }
+]

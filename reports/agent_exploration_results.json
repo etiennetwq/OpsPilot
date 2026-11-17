@@ -1,0 +1,2045 @@
+[
+  {
+    "run": "smoke",
+    "result": {
+      "question": "请调查 Directory index forbidden by rule：提供日志行号、相邻记录、相关文档，并统计该消息在整个样本中的总次数。只报告现象和待验证假设，不确认根因。",
+      "mode": "agent",
+      "generator": "tool-calling-llm",
+      "status": "round_limit",
+      "insufficient_evidence": true,
+      "answer": {
+        "answerable": false,
+        "summary": "调查未完成，不能据此认定不存在故障；请查看运行状态或配置。",
+        "hypotheses": [],
+        "next_checks": [
+          "核查 API 配置或在调用预算内缩小调查范围。"
+        ],
+        "citations": []
+      },
+      "logs": [
+        {
+          "line": 132,
+          "time": "Sun Dec 04 05:15:09 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L132",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 580,
+          "time": "Sun Dec 04 07:45:45 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L580",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 581,
+          "time": "Sun Dec 04 08:54:17 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L581",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 582,
+          "time": "Sun Dec 04 09:35:12 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L582",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 583,
+          "time": "Sun Dec 04 10:53:30 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L583",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 584,
+          "time": "Sun Dec 04 11:11:07 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L584",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 585,
+          "time": "Sun Dec 04 11:33:18 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L585",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 586,
+          "time": "Sun Dec 04 11:42:43 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L586",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 129,
+          "time": "Sun Dec 04 05:12:30 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 25805 in scoreboard slot 9",
+          "id": "L129",
+          "text": "jk2_init() Found child 25805 in scoreboard slot 9"
+        },
+        {
+          "line": 130,
+          "time": "Sun Dec 04 05:12:30 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties",
+          "id": "L130",
+          "text": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        },
+        {
+          "line": 131,
+          "time": "Sun Dec 04 05:12:30 2005",
+          "level": "error",
+          "message": "mod_jk child workerEnv in error state 6",
+          "id": "L131",
+          "text": "mod_jk child workerEnv in error state 6"
+        },
+        {
+          "line": 133,
+          "time": "Sun Dec 04 05:15:13 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 1000 in scoreboard slot 10",
+          "id": "L133",
+          "text": "jk2_init() Found child 1000 in scoreboard slot 10"
+        },
+        {
+          "line": 134,
+          "time": "Sun Dec 04 05:15:16 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties",
+          "id": "L134",
+          "text": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        },
+        {
+          "line": 135,
+          "time": "Sun Dec 04 05:15:16 2005",
+          "level": "error",
+          "message": "mod_jk child workerEnv in error state 6",
+          "id": "L135",
+          "text": "mod_jk child workerEnv in error state 6"
+        },
+        {
+          "line": 587,
+          "time": "Sun Dec 04 12:33:13 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L587",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 588,
+          "time": "Sun Dec 04 13:32:32 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L588",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        }
+      ],
+      "documents": [
+        {
+          "id": "D:directory",
+          "title": "Directory index and access policy",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mod_autoindex.html",
+          "text": "Directory index forbidden by rule is an observed access denial. DirectoryIndex chooses an index file; automatic directory listing depends on Options Indexes. Read the effective directory configuration and index file availability. Do not enable directory listing as a blanket fix. The log alone does not establish which configuration caused denial.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "D:workers",
+          "title": "Connector worker investigation",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "mod_jk worker errors require version-specific configuration and backend evidence. Modern workers.properties documentation describes workers and startup configuration diagnostics. This is contextual reading, not an authoritative decoding of historical JK2 workerEnv error state 6. Read connector version and existing worker configuration, correlate backend logs. Do not infer that Tomcat is down from workerEnv alone.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.016129032258064516
+        },
+        {
+          "id": "D:scoreboard",
+          "title": "Child process scoreboard evidence",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+          "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.015873015873015872
+        },
+        {
+          "id": "D:initialization",
+          "title": "Worker initialization evidence",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "workerEnv.init() ok and mod_jk child init are historical JK2 initialization messages. Initialization success in one record does not prove end-to-end service health. JK2 is a historical connector; inspect archived version information before applying modern mod_jk advice. Compare neighboring errors and connector configuration.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.015625
+        },
+        {
+          "id": "D:errorlog",
+          "title": "Reading the error log",
+          "url": "https://httpd.apache.org/docs/2.4/logs.html#errorlog",
+          "text": "Error logs record diagnostic messages, including severity and time. A notice is not itself evidence of a failed request. Correlate timestamps and access logs before inferring impact. Historical formats differ from Apache 2.4.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.015384615384615385
+        }
+      ],
+      "context": [
+        {
+          "line": 129,
+          "time": "Sun Dec 04 05:12:30 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 25805 in scoreboard slot 9",
+          "id": "L129",
+          "text": "jk2_init() Found child 25805 in scoreboard slot 9"
+        },
+        {
+          "line": 130,
+          "time": "Sun Dec 04 05:12:30 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties",
+          "id": "L130",
+          "text": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        },
+        {
+          "line": 131,
+          "time": "Sun Dec 04 05:12:30 2005",
+          "level": "error",
+          "message": "mod_jk child workerEnv in error state 6",
+          "id": "L131",
+          "text": "mod_jk child workerEnv in error state 6"
+        },
+        {
+          "line": 132,
+          "time": "Sun Dec 04 05:15:09 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L132",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 133,
+          "time": "Sun Dec 04 05:15:13 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 1000 in scoreboard slot 10",
+          "id": "L133",
+          "text": "jk2_init() Found child 1000 in scoreboard slot 10"
+        },
+        {
+          "line": 134,
+          "time": "Sun Dec 04 05:15:16 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties",
+          "id": "L134",
+          "text": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        },
+        {
+          "line": 135,
+          "time": "Sun Dec 04 05:15:16 2005",
+          "level": "error",
+          "message": "mod_jk child workerEnv in error state 6",
+          "id": "L135",
+          "text": "mod_jk child workerEnv in error state 6"
+        },
+        {
+          "line": 580,
+          "time": "Sun Dec 04 07:45:45 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L580",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 581,
+          "time": "Sun Dec 04 08:54:17 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L581",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 582,
+          "time": "Sun Dec 04 09:35:12 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L582",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 583,
+          "time": "Sun Dec 04 10:53:30 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L583",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 584,
+          "time": "Sun Dec 04 11:11:07 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L584",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 585,
+          "time": "Sun Dec 04 11:33:18 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L585",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 586,
+          "time": "Sun Dec 04 11:42:43 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L586",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 584,
+          "time": "Sun Dec 04 11:11:07 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L584",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 585,
+          "time": "Sun Dec 04 11:33:18 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L585",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 586,
+          "time": "Sun Dec 04 11:42:43 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L586",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 587,
+          "time": "Sun Dec 04 12:33:13 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L587",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 588,
+          "time": "Sun Dec 04 13:32:32 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L588",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        }
+      ],
+      "statistics": [
+        {
+          "id": "S:3",
+          "scope": "2000-row sample; source line interval, not a production incident window",
+          "filters": {
+            "contains": "Directory index forbidden by rule",
+            "level": null,
+            "start": 1,
+            "end": 2000
+          },
+          "total": 32,
+          "by_level": [
+            {
+              "level": "error",
+              "count": 32
+            }
+          ]
+        },
+        {
+          "id": "S:7",
+          "scope": "2000-row sample; source line interval, not a production incident window",
+          "filters": {
+            "contains": "/var/www/html/",
+            "level": null,
+            "start": 1,
+            "end": 2000
+          },
+          "total": 32,
+          "by_level": [
+            {
+              "level": "error",
+              "count": 32
+            }
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "round": 1,
+          "tool": "search_logs",
+          "call_id": "call_00_0nOE38IzPbkrzTBlHx2Z6114",
+          "arguments": {
+            "query": "Directory index forbidden by rule",
+            "k": 8
+          },
+          "status": "ok",
+          "result": {
+            "items": [
+              {
+                "id": "L132",
+                "line": 132,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.03278688524590164
+              },
+              {
+                "id": "L580",
+                "line": 580,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.03225806451612903
+              },
+              {
+                "id": "L581",
+                "line": 581,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.031746031746031744
+              },
+              {
+                "id": "L582",
+                "line": 582,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.03125
+              },
+              {
+                "id": "L583",
+                "line": 583,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.03076923076923077
+              },
+              {
+                "id": "L584",
+                "line": 584,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.030303030303030304
+              },
+              {
+                "id": "L585",
+                "line": 585,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.029850746268656716
+              },
+              {
+                "id": "L586",
+                "line": 586,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.029411764705882353
+              }
+            ]
+          }
+        },
+        {
+          "round": 1,
+          "tool": "search_docs",
+          "call_id": "call_01_BByelwRuyFYU7ePBy8wf7109",
+          "arguments": {
+            "query": "Directory index forbidden by rule mod_autoindex Options Indexes",
+            "k": 5
+          },
+          "status": "ok",
+          "result": {
+            "items": [
+              {
+                "id": "D:directory",
+                "title": "Directory index and access policy",
+                "url": "https://httpd.apache.org/docs/2.4/mod/mod_autoindex.html",
+                "text": "Directory index forbidden by rule is an observed access denial. DirectoryIndex chooses an index file; automatic directory listing depends on Options Indexes. Read the effective directory configuration and index file availability. Do not enable directory listing as a blanket fix. The log alone does not establish which configuration caused denial.",
+                "section": "OpsPilot authored reading note; see official source",
+                "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+                "score": 0.03278688524590164
+              },
+              {
+                "id": "D:workers",
+                "title": "Connector worker investigation",
+                "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+                "text": "mod_jk worker errors require version-specific configuration and backend evidence. Modern workers.properties documentation describes workers and startup configuration diagnostics. This is contextual reading, not an authoritative decoding of historical JK2 workerEnv error state 6. Read connector version and existing worker configuration, correlate backend logs. Do not infer that Tomcat is down from workerEnv alone.",
+                "section": "OpsPilot authored reading note; see official source",
+                "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+                "score": 0.016129032258064516
+              },
+              {
+                "id": "D:scoreboard",
+                "title": "Child process scoreboard evidence",
+                "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+                "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+                "section": "OpsPilot authored reading note; see official source",
+                "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+                "score": 0.015873015873015872
+              },
+              {
+                "id": "D:initialization",
+                "title": "Worker initialization evidence",
+                "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+                "text": "workerEnv.init() ok and mod_jk child init are historical JK2 initialization messages. Initialization success in one record does not prove end-to-end service health. JK2 is a historical connector; inspect archived version information before applying modern mod_jk advice. Compare neighboring errors and connector configuration.",
+                "section": "OpsPilot authored reading note; see official source",
+                "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+                "score": 0.015625
+              },
+              {
+                "id": "D:errorlog",
+                "title": "Reading the error log",
+                "url": "https://httpd.apache.org/docs/2.4/logs.html#errorlog",
+                "text": "Error logs record diagnostic messages, including severity and time. A notice is not itself evidence of a failed request. Correlate timestamps and access logs before inferring impact. Historical formats differ from Apache 2.4.",
+                "section": "OpsPilot authored reading note; see official source",
+                "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+                "score": 0.015384615384615385
+              }
+            ]
+          }
+        },
+        {
+          "round": 2,
+          "tool": "log_stats",
+          "call_id": "call_00_6NH5kdINhYm9L8gtQeOV8599",
+          "arguments": {
+            "contains": "Directory index forbidden by rule",
+            "level": null,
+            "start": 1,
+            "end": 2000
+          },
+          "status": "ok",
+          "result": {
+            "id": "S:3",
+            "scope": "2000-row sample; source line interval, not a production incident window",
+            "filters": {
+              "contains": "Directory index forbidden by rule",
+              "level": null,
+              "start": 1,
+              "end": 2000
+            },
+            "total": 32,
+            "by_level": [
+              {
+                "level": "error",
+                "count": 32
+              }
+            ]
+          }
+        },
+        {
+          "round": 2,
+          "tool": "get_context",
+          "call_id": "call_01_UQCydm1WxeJkEqRqobF60217",
+          "arguments": {
+            "line": 132,
+            "radius": 3
+          },
+          "status": "ok",
+          "result": {
+            "items": [
+              {
+                "line": 129,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "notice",
+                "message": "jk2_init() Found child 25805 in scoreboard slot 9",
+                "id": "L129",
+                "text": "jk2_init() Found child 25805 in scoreboard slot 9"
+              },
+              {
+                "line": 130,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "notice",
+                "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties",
+                "id": "L130",
+                "text": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+              },
+              {
+                "line": 131,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "mod_jk child workerEnv in error state 6",
+                "id": "L131",
+                "text": "mod_jk child workerEnv in error state 6"
+              },
+              {
+                "line": 132,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "id": "L132",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+              },
+              {
+                "line": 133,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "notice",
+                "message": "jk2_init() Found child 1000 in scoreboard slot 10",
+                "id": "L133",
+                "text": "jk2_init() Found child 1000 in scoreboard slot 10"
+              },
+              {
+                "line": 134,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "notice",
+                "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties",
+                "id": "L134",
+                "text": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+              },
+              {
+                "line": 135,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "mod_jk child workerEnv in error state 6",
+                "id": "L135",
+                "text": "mod_jk child workerEnv in error state 6"
+              }
+            ]
+          }
+        },
+        {
+          "round": 2,
+          "tool": "get_context",
+          "call_id": "call_02_h93lQC3g8f1TqhMqwTOW7938",
+          "arguments": {
+            "line": 583,
+            "radius": 3
+          },
+          "status": "ok",
+          "result": {
+            "items": [
+              {
+                "line": 580,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "id": "L580",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+              },
+              {
+                "line": 581,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "id": "L581",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+              },
+              {
+                "line": 582,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "id": "L582",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+              },
+              {
+                "line": 583,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "id": "L583",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+              },
+              {
+                "line": 584,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "id": "L584",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+              },
+              {
+                "line": 585,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "id": "L585",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+              },
+              {
+                "line": 586,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "id": "L586",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+              }
+            ]
+          }
+        },
+        {
+          "round": 3,
+          "tool": "get_context",
+          "call_id": "call_00_ge1ByrQB97RE8oStqPys8265",
+          "arguments": {
+            "line": 586,
+            "radius": 2
+          },
+          "status": "ok",
+          "result": {
+            "items": [
+              {
+                "line": 584,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "id": "L584",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+              },
+              {
+                "line": 585,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "id": "L585",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+              },
+              {
+                "line": 586,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "id": "L586",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+              },
+              {
+                "line": 587,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "id": "L587",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+              },
+              {
+                "line": 588,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "id": "L588",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+              }
+            ]
+          }
+        },
+        {
+          "round": 3,
+          "tool": "log_stats",
+          "call_id": "call_01_Z0T7Yt65KTl7zuVndfyB0622",
+          "arguments": {
+            "contains": "/var/www/html/",
+            "level": null,
+            "start": 1,
+            "end": 2000
+          },
+          "status": "ok",
+          "result": {
+            "id": "S:7",
+            "scope": "2000-row sample; source line interval, not a production incident window",
+            "filters": {
+              "contains": "/var/www/html/",
+              "level": null,
+              "start": 1,
+              "end": 2000
+            },
+            "total": 32,
+            "by_level": [
+              {
+                "level": "error",
+                "count": 32
+              }
+            ]
+          }
+        },
+        {
+          "round": 4,
+          "tool": "finish_investigation",
+          "call_id": "call_00_MHQRNMrszTLLbHSzHsvF5066",
+          "status": "rejected",
+          "result": {
+            "error": "Tool validation/execution rejected: check allowed tool, schema, bounds, duplicate query and citation rules."
+          }
+        },
+        {
+          "round": 5,
+          "tool": "finish_investigation",
+          "call_id": "call_00_b9iV5LClRy6cE1CYDtka5783",
+          "status": "rejected",
+          "result": {
+            "error": "Tool validation/execution rejected: check allowed tool, schema, bounds, duplicate query and citation rules."
+          }
+        },
+        {
+          "round": 6,
+          "tool": "finish_investigation",
+          "call_id": "call_00_TQe20Nq1D1TBZb8wH5gg0383",
+          "status": "rejected",
+          "result": {
+            "error": "Tool validation/execution rejected: check allowed tool, schema, bounds, duplicate query and citation rules."
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 25414,
+        "completion_tokens": 3136,
+        "total_tokens": 28550,
+        "api_calls": 6,
+        "cost_usd": null,
+        "cost_basis": "configured flat-rate estimate; cache and peak pricing not modeled"
+      },
+      "provider_error": null,
+      "model": "deepseek-flash",
+      "embedding": "lsa",
+      "latency_ms": 21562.424,
+      "limits": {
+        "max_rounds": 6,
+        "max_tool_calls": 12,
+        "timeout_seconds": 90,
+        "observed_token_stop": 24000
+      },
+      "warning": "Model selects tools; server validates and executes read-only functions. No confirmed root-cause labels. Citation existence is not semantic entailment."
+    }
+  },
+  {
+    "run": "stats",
+    "result": {
+      "question": "Count all sample rows by severity. Reply very briefly in English using log_stats and finish_investigation. Keep summary under 100 characters and each array to at most 2 short strings.",
+      "mode": "agent",
+      "generator": "tool-calling-llm",
+      "status": "completed",
+      "insufficient_evidence": false,
+      "answer": {
+        "answerable": true,
+        "summary": "Sample: 2000 rows — error 595, notice 1405; no warn/info/debug.",
+        "hypotheses": [
+          "Errors dominate ~30% of sampled rows."
+        ],
+        "next_checks": [
+          "Group error rows by message."
+        ],
+        "citations": [
+          "S:1",
+          "S:2",
+          "S:3",
+          "S:4",
+          "S:5",
+          "S:6"
+        ]
+      },
+      "logs": [],
+      "documents": [],
+      "context": [],
+      "statistics": [
+        {
+          "id": "S:1",
+          "scope": "2000-row sample; source line interval, not a production incident window",
+          "filters": {
+            "contains": "",
+            "level": null,
+            "start": 1,
+            "end": 2000
+          },
+          "total": 2000,
+          "by_level": [
+            {
+              "level": "error",
+              "count": 595
+            },
+            {
+              "level": "notice",
+              "count": 1405
+            }
+          ]
+        },
+        {
+          "id": "S:2",
+          "scope": "2000-row sample; source line interval, not a production incident window",
+          "filters": {
+            "contains": "",
+            "level": "error",
+            "start": 1,
+            "end": 2000
+          },
+          "total": 595,
+          "by_level": [
+            {
+              "level": "error",
+              "count": 595
+            }
+          ]
+        },
+        {
+          "id": "S:3",
+          "scope": "2000-row sample; source line interval, not a production incident window",
+          "filters": {
+            "contains": "",
+            "level": "notice",
+            "start": 1,
+            "end": 2000
+          },
+          "total": 1405,
+          "by_level": [
+            {
+              "level": "notice",
+              "count": 1405
+            }
+          ]
+        },
+        {
+          "id": "S:4",
+          "scope": "2000-row sample; source line interval, not a production incident window",
+          "filters": {
+            "contains": "",
+            "level": "warn",
+            "start": 1,
+            "end": 2000
+          },
+          "total": 0,
+          "by_level": []
+        },
+        {
+          "id": "S:5",
+          "scope": "2000-row sample; source line interval, not a production incident window",
+          "filters": {
+            "contains": "",
+            "level": "info",
+            "start": 1,
+            "end": 2000
+          },
+          "total": 0,
+          "by_level": []
+        },
+        {
+          "id": "S:6",
+          "scope": "2000-row sample; source line interval, not a production incident window",
+          "filters": {
+            "contains": "",
+            "level": "debug",
+            "start": 1,
+            "end": 2000
+          },
+          "total": 0,
+          "by_level": []
+        }
+      ],
+      "trace": [
+        {
+          "round": 1,
+          "tool": "log_stats",
+          "call_id": "call_00_TPJrXXyW4ThR2ErO4Ivx4933",
+          "arguments": {
+            "contains": "",
+            "level": null,
+            "start": 1,
+            "end": 2000
+          },
+          "status": "ok",
+          "result": {
+            "id": "S:1",
+            "scope": "2000-row sample; source line interval, not a production incident window",
+            "filters": {
+              "contains": "",
+              "level": null,
+              "start": 1,
+              "end": 2000
+            },
+            "total": 2000,
+            "by_level": [
+              {
+                "level": "error",
+                "count": 595
+              },
+              {
+                "level": "notice",
+                "count": 1405
+              }
+            ]
+          }
+        },
+        {
+          "round": 1,
+          "tool": "log_stats",
+          "call_id": "call_01_CIShRyuNYjSVWV9cic7A1783",
+          "arguments": {
+            "contains": "",
+            "level": "error",
+            "start": 1,
+            "end": 2000
+          },
+          "status": "ok",
+          "result": {
+            "id": "S:2",
+            "scope": "2000-row sample; source line interval, not a production incident window",
+            "filters": {
+              "contains": "",
+              "level": "error",
+              "start": 1,
+              "end": 2000
+            },
+            "total": 595,
+            "by_level": [
+              {
+                "level": "error",
+                "count": 595
+              }
+            ]
+          }
+        },
+        {
+          "round": 1,
+          "tool": "log_stats",
+          "call_id": "call_02_ysqvwKxPtGBWSUKxTB6G5549",
+          "arguments": {
+            "contains": "",
+            "level": "notice",
+            "start": 1,
+            "end": 2000
+          },
+          "status": "ok",
+          "result": {
+            "id": "S:3",
+            "scope": "2000-row sample; source line interval, not a production incident window",
+            "filters": {
+              "contains": "",
+              "level": "notice",
+              "start": 1,
+              "end": 2000
+            },
+            "total": 1405,
+            "by_level": [
+              {
+                "level": "notice",
+                "count": 1405
+              }
+            ]
+          }
+        },
+        {
+          "round": 1,
+          "tool": "log_stats",
+          "call_id": "call_03_urFGBbvK1kDXXS3jOYXw8751",
+          "arguments": {
+            "contains": "",
+            "level": "warn",
+            "start": 1,
+            "end": 2000
+          },
+          "status": "ok",
+          "result": {
+            "id": "S:4",
+            "scope": "2000-row sample; source line interval, not a production incident window",
+            "filters": {
+              "contains": "",
+              "level": "warn",
+              "start": 1,
+              "end": 2000
+            },
+            "total": 0,
+            "by_level": []
+          }
+        },
+        {
+          "round": 1,
+          "tool": "log_stats",
+          "call_id": "call_04_GoAB7w81y3c2Ey4HpGQn9242",
+          "arguments": {
+            "contains": "",
+            "level": "info",
+            "start": 1,
+            "end": 2000
+          },
+          "status": "ok",
+          "result": {
+            "id": "S:5",
+            "scope": "2000-row sample; source line interval, not a production incident window",
+            "filters": {
+              "contains": "",
+              "level": "info",
+              "start": 1,
+              "end": 2000
+            },
+            "total": 0,
+            "by_level": []
+          }
+        },
+        {
+          "round": 1,
+          "tool": "log_stats",
+          "call_id": "call_05_T1v8xRsov607oQZGCu6u4024",
+          "arguments": {
+            "contains": "",
+            "level": "debug",
+            "start": 1,
+            "end": 2000
+          },
+          "status": "ok",
+          "result": {
+            "id": "S:6",
+            "scope": "2000-row sample; source line interval, not a production incident window",
+            "filters": {
+              "contains": "",
+              "level": "debug",
+              "start": 1,
+              "end": 2000
+            },
+            "total": 0,
+            "by_level": []
+          }
+        },
+        {
+          "round": 2,
+          "tool": "finish_investigation",
+          "call_id": "call_00_aiFyb7zKlJKTbumu1JI47107",
+          "arguments": {
+            "answerable": true,
+            "summary": "Sample: 2000 rows — error 595, notice 1405; no warn/info/debug.",
+            "hypotheses": [
+              "Errors dominate ~30% of sampled rows."
+            ],
+            "next_checks": [
+              "Group error rows by message."
+            ],
+            "citations": [
+              "S:1",
+              "S:2",
+              "S:3",
+              "S:4",
+              "S:5",
+              "S:6"
+            ]
+          },
+          "status": "ok",
+          "result": {
+            "accepted": true
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 3690,
+        "completion_tokens": 637,
+        "total_tokens": 4327,
+        "api_calls": 2,
+        "cost_usd": null,
+        "cost_basis": "configured flat-rate estimate; cache and peak pricing not modeled"
+      },
+      "provider_error": null,
+      "model": "deepseek-flash",
+      "embedding": "lsa",
+      "latency_ms": 5023.781,
+      "limits": {
+        "max_rounds": 6,
+        "max_tool_calls": 12,
+        "timeout_seconds": 90,
+        "observed_token_stop": 24000
+      },
+      "warning": "Model selects tools; server validates and executes read-only functions. No confirmed root-cause labels. Citation existence is not semantic entailment."
+    }
+  },
+  {
+    "run": "directory",
+    "result": {
+      "question": "Find Directory index forbidden by rule and cite one log plus one document. Reply very briefly in English: summary under 100 characters, each array at most one short string, citations at most three. Do not confirm a root cause.",
+      "mode": "agent",
+      "generator": "tool-calling-llm",
+      "status": "completed",
+      "insufficient_evidence": false,
+      "answer": {
+        "answerable": true,
+        "summary": "Found \"Directory index forbidden by rule\" errors for /var/www/html/ (e.g., L132).",
+        "hypotheses": [
+          "Directory listing denied by config (Options Indexes / missing index file); cause unconfirmed."
+        ],
+        "next_checks": [
+          "Read effective directory config and index file presence."
+        ],
+        "citations": [
+          "L132",
+          "D:directory"
+        ]
+      },
+      "logs": [
+        {
+          "id": "L132",
+          "line": 132,
+          "time": "Sun Dec 04 05:15:09 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "L580",
+          "line": 580,
+          "time": "Sun Dec 04 07:45:45 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "L581",
+          "line": 581,
+          "time": "Sun Dec 04 08:54:17 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.031746031746031744
+        },
+        {
+          "id": "L582",
+          "line": 582,
+          "time": "Sun Dec 04 09:35:12 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.03125
+        },
+        {
+          "id": "L583",
+          "line": 583,
+          "time": "Sun Dec 04 10:53:30 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.03076923076923077
+        }
+      ],
+      "documents": [
+        {
+          "id": "D:directory",
+          "title": "Directory index and access policy",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mod_autoindex.html",
+          "text": "Directory index forbidden by rule is an observed access denial. DirectoryIndex chooses an index file; automatic directory listing depends on Options Indexes. Read the effective directory configuration and index file availability. Do not enable directory listing as a blanket fix. The log alone does not establish which configuration caused denial.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "D:workers",
+          "title": "Connector worker investigation",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "mod_jk worker errors require version-specific configuration and backend evidence. Modern workers.properties documentation describes workers and startup configuration diagnostics. This is contextual reading, not an authoritative decoding of historical JK2 workerEnv error state 6. Read connector version and existing worker configuration, correlate backend logs. Do not infer that Tomcat is down from workerEnv alone.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.016129032258064516
+        },
+        {
+          "id": "D:scoreboard",
+          "title": "Child process scoreboard evidence",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+          "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.015873015873015872
+        }
+      ],
+      "context": [],
+      "statistics": [],
+      "trace": [
+        {
+          "round": 1,
+          "tool": "search_logs",
+          "call_id": "call_00_XtfscIsjrOvgFkqO5zUX0493",
+          "arguments": {
+            "query": "Directory index forbidden by rule",
+            "k": 5
+          },
+          "status": "ok",
+          "result": {
+            "items": [
+              {
+                "id": "L132",
+                "line": 132,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.03278688524590164
+              },
+              {
+                "id": "L580",
+                "line": 580,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.03225806451612903
+              },
+              {
+                "id": "L581",
+                "line": 581,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.031746031746031744
+              },
+              {
+                "id": "L582",
+                "line": 582,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.03125
+              },
+              {
+                "id": "L583",
+                "line": 583,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.03076923076923077
+              }
+            ]
+          }
+        },
+        {
+          "round": 1,
+          "tool": "search_docs",
+          "call_id": "call_01_QYjSY28FfEwLiSczoHua5839",
+          "arguments": {
+            "query": "Directory index forbidden by rule Options Indexes",
+            "k": 3
+          },
+          "status": "ok",
+          "result": {
+            "items": [
+              {
+                "id": "D:directory",
+                "title": "Directory index and access policy",
+                "url": "https://httpd.apache.org/docs/2.4/mod/mod_autoindex.html",
+                "text": "Directory index forbidden by rule is an observed access denial. DirectoryIndex chooses an index file; automatic directory listing depends on Options Indexes. Read the effective directory configuration and index file availability. Do not enable directory listing as a blanket fix. The log alone does not establish which configuration caused denial.",
+                "section": "OpsPilot authored reading note; see official source",
+                "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+                "score": 0.03278688524590164
+              },
+              {
+                "id": "D:workers",
+                "title": "Connector worker investigation",
+                "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+                "text": "mod_jk worker errors require version-specific configuration and backend evidence. Modern workers.properties documentation describes workers and startup configuration diagnostics. This is contextual reading, not an authoritative decoding of historical JK2 workerEnv error state 6. Read connector version and existing worker configuration, correlate backend logs. Do not infer that Tomcat is down from workerEnv alone.",
+                "section": "OpsPilot authored reading note; see official source",
+                "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+                "score": 0.016129032258064516
+              },
+              {
+                "id": "D:scoreboard",
+                "title": "Child process scoreboard evidence",
+                "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+                "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+                "section": "OpsPilot authored reading note; see official source",
+                "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+                "score": 0.015873015873015872
+              }
+            ]
+          }
+        },
+        {
+          "round": 2,
+          "tool": "finish_investigation",
+          "call_id": "call_00_tmnJMhAK9ooWR6pQMJyu0666",
+          "arguments": {
+            "answerable": true,
+            "summary": "Found \"Directory index forbidden by rule\" errors for /var/www/html/ (e.g., L132).",
+            "hypotheses": [
+              "Directory listing denied by config (Options Indexes / missing index file); cause unconfirmed."
+            ],
+            "next_checks": [
+              "Read effective directory config and index file presence."
+            ],
+            "citations": [
+              "L132",
+              "D:directory"
+            ]
+          },
+          "status": "ok",
+          "result": {
+            "accepted": true
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 3689,
+        "completion_tokens": 278,
+        "total_tokens": 3967,
+        "api_calls": 2,
+        "cost_usd": null,
+        "cost_basis": "configured flat-rate estimate; cache and peak pricing not modeled"
+      },
+      "provider_error": null,
+      "model": "deepseek-flash",
+      "embedding": "lsa",
+      "latency_ms": 4612.304,
+      "limits": {
+        "max_rounds": 6,
+        "max_tool_calls": 12,
+        "timeout_seconds": 90,
+        "observed_token_stop": 24000
+      },
+      "warning": "Model selects tools; server validates and executes read-only functions. No confirmed root-cause labels. Citation existence is not semantic entailment."
+    }
+  },
+  {
+    "run": "chinese_retest",
+    "result": {
+      "question": "请调查 Directory index forbidden by rule：提供日志行号、相邻记录、相关文档，并统计该消息在整个样本中的总次数。只报告现象和待验证假设，不确认根因。",
+      "mode": "agent",
+      "generator": "tool-calling-llm",
+      "status": "completed",
+      "insufficient_evidence": false,
+      "answer": {
+        "answerable": true,
+        "summary": "样本中\"Directory index forbidden by rule: /var/www/html/\"共32条，全部为error级（S:2）；其中31条集中在570行之后（S:6）。典型行L132，相邻为workerEnv.init() ok（L130）、mod_jk child workerEnv in error state 6（L131）、jk2_init Found child（L133）；L581–L585为连续重复。文档D:directory说明这是目录访问被拒，日志本身无法确定具体配置原因。",
+        "hypotheses": [
+          "目标目录缺少DirectoryIndex索引文件且未开启Options Indexes，导致请求被拒（需查有效配置）",
+          "客户端反复请求目录路径（如扫描或错误链接）造成集中重复"
+        ],
+        "next_checks": [
+          "核对/var/www/html的有效Directory/Options与DirectoryIndex配置",
+          "查看对应访问日志的请求URI与状态码",
+          "确认该目录是否存在index文件"
+        ],
+        "citations": [
+          "S:2",
+          "S:6",
+          "L132",
+          "L131",
+          "L133",
+          "L581",
+          "L585",
+          "D:directory"
+        ]
+      },
+      "logs": [
+        {
+          "line": 132,
+          "time": "Sun Dec 04 05:15:09 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L132",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "id": "L580",
+          "line": 580,
+          "time": "Sun Dec 04 07:45:45 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.03225806451612903
+        },
+        {
+          "line": 581,
+          "time": "Sun Dec 04 08:54:17 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L581",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 582,
+          "time": "Sun Dec 04 09:35:12 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L582",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 583,
+          "time": "Sun Dec 04 10:53:30 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L583",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 584,
+          "time": "Sun Dec 04 11:11:07 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L584",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 585,
+          "time": "Sun Dec 04 11:33:18 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L585",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "id": "L586",
+          "line": 586,
+          "time": "Sun Dec 04 11:42:43 2005",
+          "level": "error",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "score": 0.029411764705882353
+        },
+        {
+          "line": 130,
+          "time": "Sun Dec 04 05:12:30 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties",
+          "id": "L130",
+          "text": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        },
+        {
+          "line": 131,
+          "time": "Sun Dec 04 05:12:30 2005",
+          "level": "error",
+          "message": "mod_jk child workerEnv in error state 6",
+          "id": "L131",
+          "text": "mod_jk child workerEnv in error state 6"
+        },
+        {
+          "line": 133,
+          "time": "Sun Dec 04 05:15:13 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 1000 in scoreboard slot 10",
+          "id": "L133",
+          "text": "jk2_init() Found child 1000 in scoreboard slot 10"
+        },
+        {
+          "line": 134,
+          "time": "Sun Dec 04 05:15:16 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties",
+          "id": "L134",
+          "text": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        }
+      ],
+      "documents": [
+        {
+          "id": "D:directory",
+          "title": "Directory index and access policy",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mod_autoindex.html",
+          "text": "Directory index forbidden by rule is an observed access denial. DirectoryIndex chooses an index file; automatic directory listing depends on Options Indexes. Read the effective directory configuration and index file availability. Do not enable directory listing as a blanket fix. The log alone does not establish which configuration caused denial.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "D:workers",
+          "title": "Connector worker investigation",
+          "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+          "text": "mod_jk worker errors require version-specific configuration and backend evidence. Modern workers.properties documentation describes workers and startup configuration diagnostics. This is contextual reading, not an authoritative decoding of historical JK2 workerEnv error state 6. Read connector version and existing worker configuration, correlate backend logs. Do not infer that Tomcat is down from workerEnv alone.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.016129032258064516
+        },
+        {
+          "id": "D:scoreboard",
+          "title": "Child process scoreboard evidence",
+          "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+          "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.015873015873015872
+        },
+        {
+          "id": "D:errorlog",
+          "title": "Reading the error log",
+          "url": "https://httpd.apache.org/docs/2.4/logs.html#errorlog",
+          "text": "Error logs record diagnostic messages, including severity and time. A notice is not itself evidence of a failed request. Correlate timestamps and access logs before inferring impact. Historical formats differ from Apache 2.4.",
+          "section": "OpsPilot authored reading note; see official source",
+          "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+          "score": 0.015625
+        }
+      ],
+      "context": [
+        {
+          "line": 130,
+          "time": "Sun Dec 04 05:12:30 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties",
+          "id": "L130",
+          "text": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        },
+        {
+          "line": 131,
+          "time": "Sun Dec 04 05:12:30 2005",
+          "level": "error",
+          "message": "mod_jk child workerEnv in error state 6",
+          "id": "L131",
+          "text": "mod_jk child workerEnv in error state 6"
+        },
+        {
+          "line": 132,
+          "time": "Sun Dec 04 05:15:09 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L132",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 133,
+          "time": "Sun Dec 04 05:15:13 2005",
+          "level": "notice",
+          "message": "jk2_init() Found child 1000 in scoreboard slot 10",
+          "id": "L133",
+          "text": "jk2_init() Found child 1000 in scoreboard slot 10"
+        },
+        {
+          "line": 134,
+          "time": "Sun Dec 04 05:15:16 2005",
+          "level": "notice",
+          "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties",
+          "id": "L134",
+          "text": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+        },
+        {
+          "line": 581,
+          "time": "Sun Dec 04 08:54:17 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L581",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 582,
+          "time": "Sun Dec 04 09:35:12 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L582",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 583,
+          "time": "Sun Dec 04 10:53:30 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L583",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 584,
+          "time": "Sun Dec 04 11:11:07 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L584",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        },
+        {
+          "line": 585,
+          "time": "Sun Dec 04 11:33:18 2005",
+          "level": "error",
+          "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+          "id": "L585",
+          "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+        }
+      ],
+      "statistics": [
+        {
+          "id": "S:2",
+          "scope": "2000-row sample; source line interval, not a production incident window",
+          "filters": {
+            "contains": "Directory index forbidden by rule",
+            "level": null,
+            "start": 1,
+            "end": 2000
+          },
+          "total": 32,
+          "by_level": [
+            {
+              "level": "error",
+              "count": 32
+            }
+          ]
+        },
+        {
+          "id": "S:6",
+          "scope": "2000-row sample; source line interval, not a production incident window",
+          "filters": {
+            "contains": "Directory index forbidden by rule",
+            "level": null,
+            "start": 570,
+            "end": 2000
+          },
+          "total": 31,
+          "by_level": [
+            {
+              "level": "error",
+              "count": 31
+            }
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "round": 1,
+          "tool": "search_logs",
+          "call_id": "call_00_A6dSc6EUnzKX1k4qNUnT9359",
+          "arguments": {
+            "query": "Directory index forbidden by rule",
+            "k": 8
+          },
+          "status": "ok",
+          "result": {
+            "items": [
+              {
+                "id": "L132",
+                "line": 132,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.03278688524590164
+              },
+              {
+                "id": "L580",
+                "line": 580,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.03225806451612903
+              },
+              {
+                "id": "L581",
+                "line": 581,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.031746031746031744
+              },
+              {
+                "id": "L582",
+                "line": 582,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.03125
+              },
+              {
+                "id": "L583",
+                "line": 583,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.03076923076923077
+              },
+              {
+                "id": "L584",
+                "line": 584,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.030303030303030304
+              },
+              {
+                "id": "L585",
+                "line": 585,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.029850746268656716
+              },
+              {
+                "id": "L586",
+                "line": 586,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "score": 0.029411764705882353
+              }
+            ]
+          }
+        },
+        {
+          "round": 1,
+          "tool": "log_stats",
+          "call_id": "call_01_5XvlMhMPEtEERfI0xLi97832",
+          "arguments": {
+            "contains": "Directory index forbidden by rule",
+            "level": null,
+            "start": 1,
+            "end": 2000
+          },
+          "status": "ok",
+          "result": {
+            "id": "S:2",
+            "scope": "2000-row sample; source line interval, not a production incident window",
+            "filters": {
+              "contains": "Directory index forbidden by rule",
+              "level": null,
+              "start": 1,
+              "end": 2000
+            },
+            "total": 32,
+            "by_level": [
+              {
+                "level": "error",
+                "count": 32
+              }
+            ]
+          }
+        },
+        {
+          "round": 2,
+          "tool": "get_context",
+          "call_id": "call_00_F29Kfd99FljwT96LdMzX9935",
+          "arguments": {
+            "line": 132,
+            "radius": 2
+          },
+          "status": "ok",
+          "result": {
+            "items": [
+              {
+                "line": 130,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "notice",
+                "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties",
+                "id": "L130",
+                "text": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+              },
+              {
+                "line": 131,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "mod_jk child workerEnv in error state 6",
+                "id": "L131",
+                "text": "mod_jk child workerEnv in error state 6"
+              },
+              {
+                "line": 132,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "id": "L132",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+              },
+              {
+                "line": 133,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "notice",
+                "message": "jk2_init() Found child 1000 in scoreboard slot 10",
+                "id": "L133",
+                "text": "jk2_init() Found child 1000 in scoreboard slot 10"
+              },
+              {
+                "line": 134,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "notice",
+                "message": "workerEnv.init() ok /etc/httpd/conf/workers2.properties",
+                "id": "L134",
+                "text": "workerEnv.init() ok /etc/httpd/conf/workers2.properties"
+              }
+            ]
+          }
+        },
+        {
+          "round": 2,
+          "tool": "get_context",
+          "call_id": "call_01_ZenfuiYdgHtrzt3lHobk4556",
+          "arguments": {
+            "line": 583,
+            "radius": 2
+          },
+          "status": "ok",
+          "result": {
+            "items": [
+              {
+                "line": 581,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "id": "L581",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+              },
+              {
+                "line": 582,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "id": "L582",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+              },
+              {
+                "line": 583,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "id": "L583",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+              },
+              {
+                "line": 584,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "id": "L584",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+              },
+              {
+                "line": 585,
+                "time": "Sun Dec 04 <IPV6> 2005",
+                "level": "error",
+                "message": "[client <IP>] Directory index forbidden by rule: /var/www/html/",
+                "id": "L585",
+                "text": "[client <IP>] Directory index forbidden by rule: /var/www/html/"
+              }
+            ]
+          }
+        },
+        {
+          "round": 2,
+          "tool": "search_docs",
+          "call_id": "call_02_anTH05zRGWFn5X0VOv4X5800",
+          "arguments": {
+            "query": "Directory index forbidden by rule Options -Indexes autoindex",
+            "k": 4
+          },
+          "status": "ok",
+          "result": {
+            "items": [
+              {
+                "id": "D:directory",
+                "title": "Directory index and access policy",
+                "url": "https://httpd.apache.org/docs/2.4/mod/mod_autoindex.html",
+                "text": "Directory index forbidden by rule is an observed access denial. DirectoryIndex chooses an index file; automatic directory listing depends on Options Indexes. Read the effective directory configuration and index file availability. Do not enable directory listing as a blanket fix. The log alone does not establish which configuration caused denial.",
+                "section": "OpsPilot authored reading note; see official source",
+                "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+                "score": 0.03278688524590164
+              },
+              {
+                "id": "D:workers",
+                "title": "Connector worker investigation",
+                "url": "https://tomcat.apache.org/connectors-doc/reference/workers.html",
+                "text": "mod_jk worker errors require version-specific configuration and backend evidence. Modern workers.properties documentation describes workers and startup configuration diagnostics. This is contextual reading, not an authoritative decoding of historical JK2 workerEnv error state 6. Read connector version and existing worker configuration, correlate backend logs. Do not infer that Tomcat is down from workerEnv alone.",
+                "section": "OpsPilot authored reading note; see official source",
+                "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+                "score": 0.016129032258064516
+              },
+              {
+                "id": "D:scoreboard",
+                "title": "Child process scoreboard evidence",
+                "url": "https://httpd.apache.org/docs/2.4/mod/mpm_common.html#scoreboardfile",
+                "text": "jk2_init Found child in scoreboard slot and jk2_init cannot find child scoreboard are distinct observations. Apache scoreboard tracks process state. Modern ScoreBoardFile documentation provides context only; it cannot decode historical JK2 internals or prove memory corruption. Read adjacent child init records and process lifecycle evidence.",
+                "section": "OpsPilot authored reading note; see official source",
+                "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+                "score": 0.015873015873015872
+              },
+              {
+                "id": "D:errorlog",
+                "title": "Reading the error log",
+                "url": "https://httpd.apache.org/docs/2.4/logs.html#errorlog",
+                "text": "Error logs record diagnostic messages, including severity and time. A notice is not itself evidence of a failed request. Correlate timestamps and access logs before inferring impact. Historical formats differ from Apache 2.4.",
+                "section": "OpsPilot authored reading note; see official source",
+                "version_scope": "Modern documentation; historical JK2 mismatch disclosed",
+                "score": 0.015625
+              }
+            ]
+          }
+        },
+        {
+          "round": 3,
+          "tool": "log_stats",
+          "call_id": "call_00_bcPpAvLwSvpwIIqL0zDu4381",
+          "arguments": {
+            "contains": "Directory index forbidden by rule",
+            "level": null,
+            "start": 570,
+            "end": 2000
+          },
+          "status": "ok",
+          "result": {
+            "id": "S:6",
+            "scope": "2000-row sample; source line interval, not a production incident window",
+            "filters": {
+              "contains": "Directory index forbidden by rule",
+              "level": null,
+              "start": 570,
+              "end": 2000
+            },
+            "total": 31,
+            "by_level": [
+              {
+                "level": "error",
+                "count": 31
+              }
+            ]
+          }
+        },
+        {
+          "round": 3,
+          "tool": "log_stats",
+          "call_id": "call_01_Uh6VMgt711GDl4hw5ngy1897",
+          "arguments": {
+            "contains": "Directory index forbidden by rule",
+            "level": null,
+            "start": 1,
+            "end": 2000
+          },
+          "status": "rejected",
+          "result": {
+            "error": "Identical call already executed; use prior result or choose another query"
+          }
+        },
+        {
+          "round": 4,
+          "tool": "finish_investigation",
+          "call_id": "call_00_Vli2YJOJO0p10VuXdMrb7287",
+          "arguments": {
+            "answerable": true,
+            "summary": "样本中\"Directory index forbidden by rule: /var/www/html/\"共32条，全部为error级（S:2）；其中31条集中在570行之后（S:6）。典型行L132，相邻为workerEnv.init() ok（L130）、mod_jk child workerEnv in error state 6（L131）、jk2_init Found child（L133）；L581–L585为连续重复。文档D:directory说明这是目录访问被拒，日志本身无法确定具体配置原因。",
+            "hypotheses": [
+              "目标目录缺少DirectoryIndex索引文件且未开启Options Indexes，导致请求被拒（需查有效配置）",
+              "客户端反复请求目录路径（如扫描或错误链接）造成集中重复"
+            ],
+            "next_checks": [
+              "核对/var/www/html的有效Directory/Options与DirectoryIndex配置",
+              "查看对应访问日志的请求URI与状态码",
+              "确认该目录是否存在index文件"
+            ],
+            "citations": [
+              "S:2",
+              "S:6",
+              "L132",
+              "L131",
+              "L133",
+              "L581",
+              "L585",
+              "D:directory"
+            ]
+          },
+          "status": "ok",
+          "result": {
+            "accepted": true
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 11574,
+        "completion_tokens": 801,
+        "total_tokens": 12375,
+        "api_calls": 4,
+        "cost_usd": null,
+        "cost_basis": "configured flat-rate estimate; cache and peak pricing not modeled"
+      },
+      "provider_error": null,
+      "model": "deepseek-flash",
+      "embedding": "lsa",
+      "latency_ms": 9156.41,
+      "limits": {
+        "max_rounds": 6,
+        "max_tool_calls": 12,
+        "timeout_seconds": 90,
+        "observed_token_stop": 48000
+      },
+      "warning": "Model selects tools; server validates and executes read-only functions. No confirmed root-cause labels. Citation existence is not semantic entailment."
+    }
+  }
+]

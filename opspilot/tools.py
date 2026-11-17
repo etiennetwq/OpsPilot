@@ -21,3 +21,9 @@ class LogTools:
     def stats(self):
         return self._select('SELECT level,COUNT(*) AS count FROM logs GROUP BY level ORDER BY level')
     def all(self): return self._select('SELECT * FROM logs ORDER BY line')
+
+    def filtered_stats(self,contains='',level=None,start=1,end=2000):
+        if not 1<=start<=end<=2000: raise ValueError('Invalid bounds')
+        if level not in (None,'error','notice','warn','info','debug'): raise ValueError('Invalid level')
+        q=contains.replace('!','!!').replace('%','!%').replace('_','!_')
+        return self._select("SELECT level,COUNT(*) AS count FROM logs WHERE message LIKE ? ESCAPE '!' AND (? IS NULL OR level=?) AND line BETWEEN ? AND ? GROUP BY level ORDER BY level",('%'+q+'%',level,level,start,end))
