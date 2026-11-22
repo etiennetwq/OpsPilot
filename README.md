@@ -1,6 +1,47 @@
 # OpsPilot
 
-**真实 Apache 日志驱动、证据优先的故障调查 Agent。** 具备可运行网页、FastAPI、只读工具、Hybrid RAG、可选真实模型 API 与可复现的事件证据评测。
+**真实大规模日志驱动、证据优先的故障调查 Agent（v0.3）。** 具备 FastAPI 服务、只读工具白名单、**BM25 + BGE + FAISS + Cross-Encoder 混合检索**、**间接 Prompt 注入三层防御**、**MCP Server**，并可直连 [LLM Security Audit Gateway](https://github.com/etiennetwq/llm-secure-gateway) 实现全链路安全审计。
+
+```mermaid
+flowchart LR
+    U["用户 / 运维工程师"] --> OP["OpsPilot Agent (FastAPI / MCP)"]
+    OP -->|"OpenAI 兼容接口 (HTTPS / Loopback)"| GW["LLM Security Audit Gateway"]
+    GW -->|"多级安全检测 + 流式审计"| LLM["DeepSeek / Qwen"]
+    OP --> T["只读工具: search_logs / search_docs / get_context / log_stats"]
+    T -->|"FAISS 持久化向量 + 倒排 BM25 + Cross-Encoder"| IDX["Apache 2k / Loghub BGL 50k"]
+    T -->|"工具输出隔离 + 间接注入扫描"| OP
+```
+
+## v0.3 核心升级与实测数据（Loghub BGL 50,000 行 · RTX 5060）
+
+- **大规模有标签日志支持**：新增官方 **Loghub BGL（50,000 行，含 6,860 行真实异常、覆盖 5 类故障）** 解析与动态边界管理，第 1 列上游告警标签严格隔离在 `data/bgl_labels.json`，不进入运行时索引。
+- **主流 RAG 技术栈与磁盘持久化**：倒排索引 BM25 + `BAAI/bge-small-en-v1.5` + **FAISS `IndexFlatIP`** 磁盘缓存 + `BAAI/bge-reranker-base` 神经重排；5 万行向量索引冷构建 **54.45s** → 磁盘热加载 **2.11s（提速 25.8×）**。
+- **Agent 异步并发与 Token 压缩**：新增 `arun()` 异步并发工具执行与 `asyncio.Semaphore(4)` 请求并发控制；精简 System Prompt 并对工具返回去重截断。
+- **间接 Prompt 注入三层防御**：JSON 数据隔离信封 + 网关 `/v1/scan`（及本地兜底）内容扫描脱敏 + 禁止可疑注入行单独作为诊断证据。
+- **MCP Server**：[opspilot/mcp_server.py](opspilot/mcp_server.py) 将 4 个只读调查工具暴露为标准 JSON-RPC 2.0 MCP 接口。
+- **54 项自动化测试全部通过**（`pytest -q`）。
+
+### 7 方案 RAG 检索消融实测（50,000 行 BGL 日志，完整报告见 [reports/retrieval_ablation.md](reports/retrieval_ablation.md)）
+
+| Retrieval Configuration | Hit@5 | MRR@10 | nDCG@10 | P50 (ms) | P95 (ms) |
+|---|---:|---:|---:|---:|---:|
+| BM25 | 0.5909 | 0.5833 | 0.5986 | 13.13 | 38.67 |
+| LSA (v0.1 baseline) | 0.7727 | 0.6818 | 0.5874 | 5.39 | 13.76 |
+| BM25 + LSA (RRF) | 0.7727 | 0.7727 | 0.6954 | 7.48 | 31.58 |
+| Dense (`BAAI/bge-small-en-v1.5`) | 0.8182 | 0.7929 | 0.7857 | 23.95 | 32.50 |
+| **BM25 + BGE (RRF)** | **0.8636** | **0.8202** | 0.7752 | **11.66** | **34.61** |
+| BM25 + BGE (RRF) + Lexical Rerank | 0.8182 | 0.8283 | 0.7714 | 11.18 | 34.31 |
+| **BM25 + BGE (RRF) + Cross-Encoder (`bge-reranker-base`)** | **0.8636** | 0.8148 | **0.8055** | 89.65 | 179.25 |
+
+> **关键发现**：在语义改写与跨术语排查场景中，`BM25 + BGE (RRF)` 将 Hit@5 从纯 BM25 的 `0.5909` 提升至 **`0.8636`**（+27.3pp），叠加 `bge-reranker-base` 精排后 nDCG@10 达到最高的 **`0.8055`**；同时实测表明简单词项重叠重排（Lexical Rerank）会拉低改写查询的 Hit@5（`0.8636 → 0.8182`）。此外，在 5 万行大语料下，单靠静态 BM25 门槛不足以完成域外拒答，需结合 Agent 工具验证或 Cross-Encoder 分数阈值。
+
+### 间接 Prompt 注入防御实测（30 条恶意日志载荷 + 50 条正常日志，见 [reports/indirect_injection_report.md](reports/indirect_injection_report.md)）
+
+| Defense Tier | 拦截数 / 30 | 拦截率 | 未防护暴露率 | 正常日志误报率 (FPR) |
+|---|---:|---:|---:|---:|
+| `none` | 0/30 | 0.0% | 100.0% | 0.0% |
+| `delimiter` | 0/30 | 0.0% | 100.0% | 0.0% |
+| **`delimiter_and_scanner`** | **30/30** | **100.0%** | **0.0%** | **0.0%** |
 
 ![真实模型工具调用演示](reports/agent_demo.jpg)
 

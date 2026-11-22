@@ -1,0 +1,5 @@
+# Neural RAG & FAISS vector store dependencies for BGL 50k ablation benchmark.
+# Install PyTorch CUDA first for RTX 5060 acceleration:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu128
+sentence-transformers>=3.0.0
+faiss-cpu>=1.8.0

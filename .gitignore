@@ -6,6 +6,11 @@ __pycache__/
 .env.*
 !.env.example
 data/index.sqlite*
+data/vector_index/
+data/bgl_labels.json
+data/source/BGL*.zip
+data/source/BGL*.tar.gz
+data/source/BGL*.log
 reports/live*
 reports/test-temp*/
 work/

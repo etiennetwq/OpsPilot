@@ -1,0 +1,72 @@
+[
+  {
+    "id": "D:bgl_kernel_tlb",
+    "title": "Blue Gene/L Kernel TLB & Machine Check Interrupts",
+    "url": "https://github.com/logpai/loghub/tree/master/BGL",
+    "text": "KERNEL data TLB error interrupt, instruction TLB error, and machine check interrupts indicate hardware/MMU translation or cache parity faults on Blue Gene/L compute nodes. Correlate node ID, adjacent RAS events, and recurring exception addresses before diagnosing faulty compute cards.",
+    "section": "BGL troubleshooting note"
+  },
+  {
+    "id": "D:bgl_memory_ddr",
+    "title": "DDR Memory, L1/L2 Cache & ECC Scrubbing Alerts",
+    "url": "https://github.com/logpai/loghub/tree/master/BGL",
+    "text": "Total corrected DDR errors, L3 EDRAM error, and L1/L2 cache parity exceptions reflect memory subsystem degradation. Single-bit correctable ECC storms often precede uncorrectable double-bit failures. Inspect node error counts and trend intervals with log_stats.",
+    "section": "BGL troubleshooting note"
+  },
+  {
+    "id": "D:bgl_kernel_storage",
+    "title": "Kernel Data Storage & Alignment Interrupts",
+    "url": "https://github.com/logpai/loghub/tree/master/BGL",
+    "text": "data storage interrupt and alignment exceptions in KERNEL logs typically stem from invalid memory references, null pointer dereferences, or misaligned user/kernel accesses during HPC job execution. Verify whether the failure isolates to one job/node or spans multiple nodes.",
+    "section": "BGL troubleshooting note"
+  },
+  {
+    "id": "D:bgl_app_io",
+    "title": "Application & CIOD / I/O Node Read Failures",
+    "url": "https://github.com/logpai/loghub/tree/master/BGL",
+    "text": "APP subsystem messages such as ciood / ciod failed to read message prefix, socket errors, or job termination signals indicate I/O daemon communication failures between compute nodes and I/O nodes. Cross-check adjacent network or filesystem timeouts.",
+    "section": "BGL troubleshooting note"
+  },
+  {
+    "id": "D:bgl_linkcard_network",
+    "title": "Torus / Tree Network & LinkCard Failures",
+    "url": "https://github.com/logpai/loghub/tree/master/BGL",
+    "text": "LINKCARD, torus receiver, and tree network packet/CRC error logs signify interconnect link instability or cable/switch degradation across racks. Check whether multiple nodes on the same midplane report simultaneous link failures.",
+    "section": "BGL troubleshooting note"
+  },
+  {
+    "id": "D:bgl_mmcs_discovery",
+    "title": "MMCS Control System & Node Discovery",
+    "url": "https://github.com/logpai/loghub/tree/master/BGL",
+    "text": "MMCS and DISCOVERY events track node booting, block allocation, and hardware inventory discovery. Repeated discovery failures or unreachable service cards indicate control-plane or power/cooling faults rather than user application bugs.",
+    "section": "BGL troubleshooting note"
+  },
+  {
+    "id": "D:bgl_hardware_ras",
+    "title": "HARDWARE & Environmental RAS Monitoring",
+    "url": "https://github.com/logpai/loghub/tree/master/BGL",
+    "text": "HARDWARE subsystem alerts cover temperature sensors, fan speeds, power supplies, and board voltage rails. Environmental thresholds can trigger automated node shutdowns or cascading kernel interrupts.",
+    "section": "BGL troubleshooting note"
+  },
+  {
+    "id": "D:bgl_kernel_program",
+    "title": "Kernel Program Interrupts & Illegal Instructions",
+    "url": "https://github.com/logpai/loghub/tree/master/BGL",
+    "text": "program interrupt: illegal instruction or privileged instruction traps in KERNEL logs occur when a process executes corrupted code, mismatched binaries, or unsupported CPU opcodes. Inspect neighboring stack/register dumps when available.",
+    "section": "BGL troubleshooting note"
+  },
+  {
+    "id": "D:bgl_severity_interpretation",
+    "title": "Interpreting BGL Severity Levels (INFO vs ERROR/FATAL)",
+    "url": "https://github.com/logpai/loghub/tree/master/BGL",
+    "text": "In BGL logs, INFO entries often record routine job/node activity, whereas FATAL, FAILURE, SEVERE, and ERROR entries (normalized to level='error') denote fault events. Always quantify severity distribution via log_stats rather than extrapolating from top-k search results.",
+    "section": "BGL troubleshooting note"
+  },
+  {
+    "id": "D:bgl_limits",
+    "title": "BGL Evidence Boundaries & Abstention Policy",
+    "url": "https://github.com/logpai/loghub/tree/master/BGL",
+    "text": "The BGL dataset contains Blue Gene/L supercomputer RAS logs only. It has no Kubernetes, PostgreSQL, HTTP/Nginx, or cloud IAM incidents. When asked about unsupported systems, inspect evidence and abstain with answerable=false.",
+    "section": "BGL troubleshooting note"
+  }
+]

@@ -1,0 +1,72 @@
+{
+  "dataset": "bgl",
+  "rows": 50000,
+  "tasks": 34,
+  "cold_index_ms": 54448.611,
+  "warm_index_ms": 2109.647,
+  "results": [
+    {
+      "config": "BM25",
+      "hit_at_5": 0.5909,
+      "mrr_at_10": 0.5833,
+      "ndcg_at_10": 0.5986,
+      "abstention_f1": 0.1538,
+      "p50_ms": 13.13,
+      "p95_ms": 38.67
+    },
+    {
+      "config": "LSA (v0.1 baseline)",
+      "hit_at_5": 0.7727,
+      "mrr_at_10": 0.6818,
+      "ndcg_at_10": 0.5874,
+      "abstention_f1": 0.0,
+      "p50_ms": 5.39,
+      "p95_ms": 13.76
+    },
+    {
+      "config": "BM25 + LSA (RRF)",
+      "hit_at_5": 0.7727,
+      "mrr_at_10": 0.7727,
+      "ndcg_at_10": 0.6954,
+      "abstention_f1": 0.0,
+      "p50_ms": 7.48,
+      "p95_ms": 31.58
+    },
+    {
+      "config": "Dense (BAAI/bge-small-en-v1.5)",
+      "hit_at_5": 0.8182,
+      "mrr_at_10": 0.7929,
+      "ndcg_at_10": 0.7857,
+      "abstention_f1": 0.0,
+      "p50_ms": 23.95,
+      "p95_ms": 32.5
+    },
+    {
+      "config": "BM25 + BGE (RRF)",
+      "hit_at_5": 0.8636,
+      "mrr_at_10": 0.8202,
+      "ndcg_at_10": 0.7752,
+      "abstention_f1": 0.0,
+      "p50_ms": 11.66,
+      "p95_ms": 34.61
+    },
+    {
+      "config": "BM25 + BGE (RRF) + Lexical Rerank",
+      "hit_at_5": 0.8182,
+      "mrr_at_10": 0.8283,
+      "ndcg_at_10": 0.7714,
+      "abstention_f1": 0.0,
+      "p50_ms": 11.18,
+      "p95_ms": 34.31
+    },
+    {
+      "config": "BM25 + BGE (RRF) + Cross-Encoder (BAAI/bge-reranker-base)",
+      "hit_at_5": 0.8636,
+      "mrr_at_10": 0.8148,
+      "ndcg_at_10": 0.8055,
+      "abstention_f1": 0.0,
+      "p50_ms": 89.65,
+      "p95_ms": 179.25
+    }
+  ]
+}
