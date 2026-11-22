@@ -1,11 +1,12 @@
-# OpsPilot Indirect Prompt Injection Defense Report
+# OpsPilot Independent Indirect Prompt Injection Report
 
-- **Run UTC**: `2026-11-22T10:00:01.754042+00:00`
-- **Gateway `/v1/scan` enabled**: `False`
-- **Test Corpus**: `30` adversarial injected log lines + `50` clean operational log lines
+- **Run UTC**: `2026-11-22T13:05:14.793978+00:00`
+- **Attack Source**: Public `Lakera/gandalf_ignore_instructions` + `deepset/prompt-injections` embedded in log templates (`n=60`)
+- **Clean Source**: Real BGL operational log lines (`n=60`)
+- **Live Gateway `/v1/scan`**: `http://127.0.0.1:8000`
 
-| Defense Tier | Intercepted / 30 | Interception Rate | Unmitigated Exposure | Clean Log FPR |
+| Defense Mode | Intercepted | Attack Recall | Clean Log False Alarms | Clean Log FPR |
 |---|---:|---:|---:|---:|
-| `none` | 0/30 | 0.0% | 100.0% | 0.0% |
-| `delimiter` | 0/30 | 0.0% | 100.0% | 0.0% |
-| `delimiter_and_scanner` | 30/30 | 100.0% | 0.0% | 0.0% |
+| `none` | 0/60 | 0.0% | 0/60 | 0.0% |
+| `local_regex` | 11/60 | 18.3% | 0/60 | 0.0% |
+| `gateway_cascade` | 51/60 | 85.0% | 2/60 | 3.3% |

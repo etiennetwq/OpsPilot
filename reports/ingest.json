@@ -1,9 +1,9 @@
 {
   "dataset": "bgl",
-  "rows": 50000,
+  "rows": 49874,
   "rejected_lines": [],
   "rejected_count": 0,
-  "source_lines": 50000,
-  "redacted_rows": 2169,
-  "anomaly_rows_labeled": 6860
+  "source_lines": 49874,
+  "redacted_rows": 6162,
+  "anomaly_rows_labeled": 14291
 }
